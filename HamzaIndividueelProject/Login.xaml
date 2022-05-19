@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="450">
+        Title="Login" Height="450" Width="450">
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="20">
             <Label Content="Login" Foreground="white" FontSize="25" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <Label Content="Profile" Foreground="White"/>
-            <ComboBox Name="cbProfile" Background="#545d6a" Foreground="White" FontSize="18">
+            <ComboBox Name="cbProfile" Background="#545d6a" Foreground="Black" FontSize="18">
                 <ComboBoxItem Content="Administrator"/>
                 <ComboBoxItem Content="Magazijnier"/>
                 <ComboBoxItem Content="Verkoper"/>
