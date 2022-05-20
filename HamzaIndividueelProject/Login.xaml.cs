@@ -32,21 +32,39 @@ namespace HamzaIndividueelProject
 
                 ctx.LoginData.Add(new LoginData()
                 {
+                    Profile = cbProfile.Text,
                     Username = txtUsername.Text,
                     Password = txtPassword.Password
                 }
                     );
                 ctx.SaveChanges();
             }
+           
 
             
             MessageBox.Show($"{txtUsername.Text} is added to list");
             txtUsername.Clear();
             txtPassword.Clear();
 
-            MainWindow dashboard = new MainWindow();
-            dashboard.Show();
-            this.Close(); 
+            switch (cbProfile.Text)
+            {
+                case "Administrator":
+                    AdministratorScherm admin = new AdministratorScherm();
+                    this.Close();
+                    break;
+                
+                
+                case "Verkoper":
+                    VerkoperScherm verkoper = new VerkoperScherm();
+                    verkoper.Show();
+                    this.Close();
+                    break;
+
+            }
+
+            // MainWindow dashboard = new MainWindow();
+            //dashboard.Show();
+            //this.Close(); 
         }
     }
 }
