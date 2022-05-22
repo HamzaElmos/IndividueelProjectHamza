@@ -4,6 +4,41 @@
              xmlns:local="clr-namespace:HamzaIndividueelProject"
              StartupUri="Login.xaml">
     <Application.Resources>
+
+        <!-- <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#384756"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#e1e6eb"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Padding" Value="10 8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBoxBase">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
+                                SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#4880ff"/>
+                            </Trigger>
+                            
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#4880ff"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+                
+            </Setter>
+            
+        </Style>-->
          
     </Application.Resources>
 </Application>

@@ -42,7 +42,7 @@ namespace HamzaIndividueelProject
            
 
             
-            MessageBox.Show($"{txtUsername.Text} is added to list");
+            //MessageBox.Show($"{txtUsername.Text} is added to list");
             txtUsername.Clear();
             txtPassword.Clear();
 
@@ -50,6 +50,7 @@ namespace HamzaIndividueelProject
             {
                 case "Administrator":
                     AdministratorScherm admin = new AdministratorScherm();
+                    admin.Show(); 
                     this.Close();
                     break;
                 
