@@ -5,7 +5,7 @@
              StartupUri="Login.xaml">
     <Application.Resources>
 
-        <!-- <Style TargetType="TextBox">
+       <!-- <Style TargetType="TextBox">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#384756"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -26,19 +26,19 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="BorderBrush" TargetName="border" Value="#4880ff"/>
                             </Trigger>
-                            
+
                             <Trigger Property="IsFocused" Value="True">
                                 <Setter Property="BorderBrush" TargetName="border" Value="#4880ff"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
-                        
-                        
+
+
                     </ControlTemplate>
                 </Setter.Value>
-                
+
             </Setter>
-            
+
         </Style>-->
-         
+
     </Application.Resources>
 </Application>

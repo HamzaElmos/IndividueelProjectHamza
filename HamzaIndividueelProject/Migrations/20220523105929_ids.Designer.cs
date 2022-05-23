@@ -4,6 +4,7 @@ using HamzaIndividueelProject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HamzaIndividueelProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220523105929_ids")]
+    partial class ids
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +52,7 @@ namespace HamzaIndividueelProject.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("HamzaIndividueelProject.Employees", b =>
@@ -75,7 +77,7 @@ namespace HamzaIndividueelProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("HamzaIndividueelProject.Inventory", b =>
@@ -100,7 +102,7 @@ namespace HamzaIndividueelProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Inventory", (string)null);
+                    b.ToTable("Inventory");
                 });
 
             modelBuilder.Entity("HamzaIndividueelProject.LoginData", b =>
@@ -125,7 +127,7 @@ namespace HamzaIndividueelProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LoginData", (string)null);
+                    b.ToTable("LoginData");
                 });
 
             modelBuilder.Entity("HamzaIndividueelProject.Products", b =>
@@ -159,7 +161,7 @@ namespace HamzaIndividueelProject.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("HamzaIndividueelProject.Suppliers", b =>
@@ -198,7 +200,7 @@ namespace HamzaIndividueelProject.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Suppliers", (string)null);
+                    b.ToTable("Suppliers");
                 });
 #pragma warning restore 612, 618
         }
