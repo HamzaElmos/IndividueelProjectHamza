@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="jippie"/>
+        <ListView x:Name="MyList" Margin=" 0 50 0 0">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding LastName}"/>                        
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Departement}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+            
+        </ListView>
+        <ComboBox Name="SortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="11 11 0 0"/>
+        <ComboBox Name="SortDir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="170 11 0 0"/>
     </Grid>
 </Window>

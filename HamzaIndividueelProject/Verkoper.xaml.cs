@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace HamzaIndividueelProject
 {
     /// <summary>
-    /// Interaction logic for VerkoperScherm.xaml
+    /// Interaction logic for Verkoper.xaml
     /// </summary>
-    public partial class VerkoperScherm : Window
+    public partial class Verkoper : Window
     {
-        public VerkoperScherm()
+        public Verkoper()
         {
             InitializeComponent();
         }

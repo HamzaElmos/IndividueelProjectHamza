@@ -20,9 +20,22 @@ namespace HamzaIndividueelProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+
+        Employees[] employees = new Employees[]
+        {
+            
+        };
+
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject"
         mc:Ignorable="d"
-        Title="AdministratorScherm" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AdministratorScherm" Height="790" Width="1150">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
+            <Button Content="tweede"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left">
+            <Button HorizontalAlignment="left" Content="Employees" Margin="20 20 20 20" Width="100"/>
+            <Button HorizontalAlignment="left" Content="Inventory" Margin="20 20 20 20" Width="100"/>
+            <Button HorizontalAlignment="left" Content="Customers" Margin="20 20 20 20" Width="100"/>
+            <Button HorizontalAlignment="left" Content="Suppliers" Margin="20 20 20 20" Width="100"/>
+        </StackPanel>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Content="First Name" Width="60" HorizontalAlignment="left" Margin="0 20 30 0"/>
+                <TextBox x:Name="tbFirstNameEmployee" Width="170" Margin="0 20 30 0"></TextBox>
+                <Button  Content="Add Employee" Width="100" HorizontalAlignment="left" Margin="0 20 30 0"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label  Content="Last Name" Width="70" HorizontalAlignment="left" Margin="0 20 30 0"/>
+                <TextBox x:Name="tbLastNameEmployee" Width="255" Margin="0 20 30 0"></TextBox>
+            </StackPanel>
+            
+            <ListView x:Name="ItemList" Margin="5 20 5 0" VerticalAlignment="Top">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Clear"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="30"/>
+                        <GridViewColumn Header="Name" Width="150"/>
+                        <GridViewColumn Header="Address" Width="150"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+           
+            
+            
+
+        </StackPanel>
+    </DockPanel>
 </Window>

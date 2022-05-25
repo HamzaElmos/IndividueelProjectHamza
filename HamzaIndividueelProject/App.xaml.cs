@@ -12,15 +12,8 @@ namespace HamzaIndividueelProject
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+ public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            DatabaseFacade facade = new DatabaseFacade(new Context());
-            facade.EnsureCreated();
-        }
 
-
-
-    }
+    }   
 }
