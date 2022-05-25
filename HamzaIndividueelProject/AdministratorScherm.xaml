@@ -13,37 +13,59 @@
         </StackPanel>
         <StackPanel DockPanel.Dock="Left">
             <Button HorizontalAlignment="left" Content="Employees" Margin="20 20 20 20" Width="100"/>
-            <Button HorizontalAlignment="left" Content="Inventory" Margin="20 20 20 20" Width="100"/>
-            <Button HorizontalAlignment="left" Content="Customers" Margin="20 20 20 20" Width="100"/>
-            <Button HorizontalAlignment="left" Content="Suppliers" Margin="20 20 20 20" Width="100"/>
+            <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click"/>
+            <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"/>
+            <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"/>
         </StackPanel>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label  Content="First Name" Width="60" HorizontalAlignment="left" Margin="0 20 30 0"/>
-                <TextBox x:Name="tbFirstNameEmployee" Width="170" Margin="0 20 30 0"></TextBox>
-                <Button  Content="Add Employee" Width="100" HorizontalAlignment="left" Margin="0 20 30 0"/>
-
+                
+                
+                <Button  x:Name="btnAddEmployee" Content="Add Employee" Width="100"  Margin="100 20 30 0" Click="btnAddEmployee_Click"/>
+                <Label Margin="1 0 10 10" Content="Departement" VerticalAlignment="Bottom"/>
+                <ComboBox x:Name="cbDepartement" Width="150" Height="30">
+                    <ComboBoxItem Content="Verkoper"/>
+                    <ComboBoxItem Content="Inventory"/>
+                    <ComboBoxItem Content="Accountancy"/>
+                </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label  Content="Last Name" Width="70" HorizontalAlignment="left" Margin="0 20 30 0"/>
-                <TextBox x:Name="tbLastNameEmployee" Width="255" Margin="0 20 30 0"></TextBox>
+                <TextBox x:Name="tbLastNameEmployee" Text="{Binding ElementName=ItemList , Path=SelectedItem.LastName}" Width="166" Margin="0 20 30 0"></TextBox>
+                <Label Content="Address" Width="70"  VerticalAlignment="Bottom"/>
+                <TextBox x:Name="tbAddress" Text="{Binding ElementName=ItemList , Path=SelectedItem.Address, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                <Label Content="City" Width="70"  VerticalAlignment="Bottom"/>
+                <TextBox x:Name="tbCity" Width="150" Margin="0 20 30 0"></TextBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="0 20 30 0" Content="First Name"/>
+                <TextBox x:Name="tbFirstNameEmployee" Text="{Binding ElementName=ItemList , Path=SelectedItem.FirstName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                <Label Margin="0 20 30 0" Content="Postcode"/>
+                <TextBox x:Name="tbPostcode" Width="170" Margin="0 20 30 0"/>
+            </StackPanel>
+            
+            
             
             <ListView x:Name="ItemList" Margin="5 20 5 0" VerticalAlignment="Top">
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Clear"/>
+                        <MenuItem Header="Clear" Click="MenuItem_Click"/>
                     </ContextMenu>
                 </ListView.ContextMenu>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="30"/>
-                        <GridViewColumn Header="Name" Width="150"/>
-                        <GridViewColumn Header="Address" Width="150"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
+                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="150"/>
+                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="150"/>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="150"/>
+                        <GridViewColumn Header="City" DisplayMemberBinding="{Binding City}" Width="150"/>
+                        <GridViewColumn Header="PostCode" DisplayMemberBinding="{Binding Postcode}" Width="150"/>
+                        <GridViewColumn Header="Departement" DisplayMemberBinding="{Binding Departement}" Width="150"/>
                     </GridView>
                 </ListView.View>
             </ListView>
+
 
            
             

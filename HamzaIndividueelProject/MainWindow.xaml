@@ -13,14 +13,31 @@
                     <GridView.Columns>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding ID}"/>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}"/>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding LastName}"/>                        
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding LastName}"/>
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Departement}"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
+            <DataGrid/>
             
         </ListView>
         <ComboBox Name="SortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="11 11 0 0"/>
         <ComboBox Name="SortDir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="170 11 0 0"/>
+        
+        <DataGrid x:Name="DatagridXML" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="200">
+
+            <DataGrid.Columns>
+                
+            </DataGrid.Columns>
+        
+        </DataGrid>
+        <StackPanel>
+            <Button HorizontalAlignment="Center" Width="50" Height="20" Content="SELEct" Click="Button_Click"/>
+        </StackPanel>
+
+        
+
+
+
     </Grid>
 </Window>
