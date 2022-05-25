@@ -17,17 +17,20 @@ namespace HamzaIndividueelProject
 
             using (Context ctx = new Context())
             {
-
-                ctx.LoginData.Add(new LoginData()
+                if(cbProfile.Text != null && txtPassword.Text != null && txtUsername.Text != null)
                 {
-                    Profile = cbProfile.Text,
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text
+                    ctx.LoginData.Add(new LoginData()
+                    {
+                        Profile = cbProfile.Text,
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Text
 
-                }
+                    }
                     );
 
-                ctx.SaveChanges();
+                    ctx.SaveChanges();
+                }  
+                
 
             }
 
@@ -50,7 +53,11 @@ namespace HamzaIndividueelProject
                     verkoper.Show();
                     this.Close();
                     break;
-
+                case "Magazijnier":
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    this.Close();
+                    break;
             }
 
             // MainWindow dashboard = new MainWindow();
