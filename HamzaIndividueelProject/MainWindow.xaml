@@ -5,39 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" SnapsToDevicePixels="True" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="MyList" Margin=" 0 50 0 0">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding ID}"/>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}"/>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding LastName}"/>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Departement}"/>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-            <DataGrid/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" SelectionMode="Single"  x:Name="sidebar" BorderThickness="0" Margin="0 50 0 50">
             
-        </ListView>
-        <ComboBox Name="SortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="11 11 0 0"/>
-        <ComboBox Name="SortDir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="170 11 0 0"/>
-        
-        <DataGrid x:Name="DatagridXML" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="200">
-
-            <DataGrid.Columns>
-                
-            </DataGrid.Columns>
-        
-        </DataGrid>
-        <StackPanel>
-            <Button HorizontalAlignment="Center" Width="50" Height="20" Content="SELEct" Click="Button_Click"/>
+        </ListBox>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center">Kies hier wat je wilt bekijken</TextBlock>
+        <StackPanel Margin="40,50,40,38" Grid.Column="1" x:Name="navframe"  Background="#e9ecef">
+            <Button x:Name="btnAdminEmployee" Margin="20 30 20 30" Click="btnAdminEmployee_Click">Employee Data</Button>
+            <Button x:Name="btnAdminCustomer" Margin="20 30 20 30" Click="btnAdminCustomer_Click">Customer Data</Button>
+            <Button x:Name="btnAdminProduct" Margin="20 30 20 30">Product Data</Button>
+            <Button x:Name="btnSupplier" Margin="20 30 20 30">Supplier Data</Button>
         </StackPanel>
-
-        
-
-
-
     </Grid>
 </Window>

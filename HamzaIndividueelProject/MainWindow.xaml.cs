@@ -30,26 +30,29 @@ namespace HamzaIndividueelProject
             InitializeComponent();
         }
 
-        private void btnEmployees_Click(object sender, RoutedEventArgs e)
+        private void btnAdminEmployee_Click(object sender, RoutedEventArgs e)
         {
-            
+            AdministratorScherm employee = new AdministratorScherm();
+            employee.Show();
+            this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAdminCustomer_Click(object sender, RoutedEventArgs e)
         {
-            string ConnectionString = @"Data Source = LAPTOP-GUFE3U9Q\SQLEXPRESS;Database=LoginData;Trusted_Connection=True;";
-
-            SqlConnection con = new SqlConnection(ConnectionString);
-
-            SqlCommand cmd = new SqlCommand(" Select * from Employees", con);
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-            DataTable dt = new DataTable();
-
-            da.Fill(dt);
-
-            DatagridXML.Items.Add(dt);
+            AdminCustomers customer = new AdminCustomers();
+            customer.Show();
+            this.Close();
         }
+
+        /* private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+         {
+
+             var selected = sidebar.SelectedItem as NavButton;
+
+             navframe.Navigate(selected.Navlink);
+
+         }*/
+
+
     }
 }
