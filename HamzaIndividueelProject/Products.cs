@@ -22,4 +22,5 @@ namespace HamzaIndividueelProject
 
         public decimal PurchasePrice { get; set; }
     }
+    
 }

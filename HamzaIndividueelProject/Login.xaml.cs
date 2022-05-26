@@ -43,8 +43,8 @@ namespace HamzaIndividueelProject
             switch (cbProfile.Text)
             {
                 case "Administrator":
-                    AdministratorScherm admin = new AdministratorScherm();
-                    admin.Show();
+                    MainWindow hoofd = new MainWindow();
+                    hoofd.Show();
                     this.Close();
                     break;
 

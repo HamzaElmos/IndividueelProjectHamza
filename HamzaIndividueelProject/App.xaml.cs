@@ -14,6 +14,7 @@ namespace HamzaIndividueelProject
     /// </summary>
  public partial class App : Application
     {
+        //zorgt ervoor dat bij opstart, er een database word gecreeerd ALS die niet reeds bestaat
         protected override void OnStartup(StartupEventArgs e)
         {
             DatabaseFacade facade = new DatabaseFacade( new Context());

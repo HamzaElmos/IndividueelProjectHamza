@@ -37,55 +37,73 @@ namespace HamzaIndividueelProject
                 var postcode = tbPostcode.Text;
 
 
-                if (name != null && lastname != null && address != null && departement != null)
+                if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
                 {
                     ctx.Employees.Add(new Employees() { FirstName = name, LastName = lastname, Departement = departement, Address= address, City=city, Postcode=postcode });
                     ctx.SaveChanges();
                 }
-                
+                /* tbFirstNameEmployee.Clear();
+                 tbLastNameEmployee.Clear();
+                 tbAddress.Clear();
+                 tbCity.Clear();
+                 tbPostcode.Clear();*/
 
+
+
+
+             }
+         }
+         public void Read()
+         {
+             using (Context ctx = new Context())
+             {
+                 DatabaseEmployees = ctx.Employees.ToList();
+                 ItemList.ItemsSource = DatabaseEmployees;
+
+             }
+             /* tbFirstNameEmployee.Clear();
+              tbLastNameEmployee.Clear();
+              tbAddress.Clear();
+              tbCity.Clear();
+              tbPostcode.Clear();*/
 
             }
-        }
-        public void Read()
-        {
-            using (Context ctx = new Context())
-            {
-                DatabaseEmployees = ctx.Employees.ToList();
-                ItemList.ItemsSource = DatabaseEmployees;
+            public void Update()
+         {
+             using (Context ctx = new Context())
+             {
+                 Employees selectedEmployee = ItemList.SelectedItem as Employees;
 
-            }
+                 var name = tbFirstNameEmployee.Text;
+                 var lastname = tbLastNameEmployee.Text;
+                 var address = tbAddress.Text;
+                 var departement = cbDepartement.Text;
+                 var city = tbCity.Text;
+                 var postcode = tbPostcode.Text;
 
-        }
-        public void Update()
-        {
-            using (Context ctx = new Context())
-            {
-                Employees selectedEmployee = ItemList.SelectedItem as Employees;
-
-                var name = tbFirstNameEmployee.Text;
-                var lastname = tbLastNameEmployee.Text;
-                var address = tbAddress.Text;
-                var departement = cbDepartement.Text;
-                var city = tbCity.Text;
-                var postcode = tbPostcode.Text;
-
-                if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
-                {
-                    Employees employee = ctx.Employees.Find(selectedEmployee.FirstName);
-                    employee.FirstName = name;
-                    employee.LastName = lastname;
+                 if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
+                 {
+                     Employees employee = ctx.Employees.Find(selectedEmployee.Id);
+                     employee.FirstName = name;
+                     employee.LastName= lastname;
+                     employee.Address = address;
+                     employee.City = city;
+                     employee.Postcode = postcode;
                     employee.Departement = departement;
-                    employee.Address = address;
 
-                    ctx.SaveChanges();
+                     ctx.SaveChanges();
+                 }
+                 /* MessageBox.Show($"{tbFirstNameEmployee.Text} {tbLastNameEmployee.Text} is updated");
 
-                }
 
-
-            }
-
+                  tbFirstNameEmployee.Clear();
+                  tbLastNameEmployee.Clear();
+                  tbAddress.Clear();
+                  tbCity.Clear();
+                  tbPostcode.Clear();*/
         }
+
+    }
         public void Delete()
         {
 
@@ -97,12 +115,12 @@ namespace HamzaIndividueelProject
                 if(selectedEmployee != null)
                 {
 
-                    Employees employee = ctx.Employees.Single(x=> x.FirstName == selectedEmployee.FirstName);
+                    Employees employee = ctx.Employees.Single(x => x.Id == selectedEmployee.Id);
 
                     ctx.Remove(employee);
                     ctx.SaveChanges();
                 }
-                
+                MessageBox.Show($"bye bye");
             }
         }
 
