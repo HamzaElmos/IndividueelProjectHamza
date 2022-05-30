@@ -14,7 +14,7 @@ namespace HamzaIndividueelProject
 
         public string ModelName { get; set; }
 
-        public bool InStock { get; set; }
+        public string Quantity { get; set; }
 
         public string Supplier { get; set; }
 

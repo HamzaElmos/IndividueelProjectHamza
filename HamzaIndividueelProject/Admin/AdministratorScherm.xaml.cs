@@ -42,11 +42,11 @@ namespace HamzaIndividueelProject
                     ctx.Employees.Add(new Employees() { FirstName = name, LastName = lastname, Departement = departement, Address= address, City=city, Postcode=postcode });
                     ctx.SaveChanges();
                 }
-                /* tbFirstNameEmployee.Clear();
+                tbFirstNameEmployee.Clear();
                  tbLastNameEmployee.Clear();
                  tbAddress.Clear();
                  tbCity.Clear();
-                 tbPostcode.Clear();*/
+                 tbPostcode.Clear();
 
 
 
@@ -61,11 +61,11 @@ namespace HamzaIndividueelProject
                  ItemList.ItemsSource = DatabaseEmployees;
 
              }
-             /* tbFirstNameEmployee.Clear();
+             tbFirstNameEmployee.Clear();
               tbLastNameEmployee.Clear();
               tbAddress.Clear();
               tbCity.Clear();
-              tbPostcode.Clear();*/
+              tbPostcode.Clear();
 
             }
             public void Update()
@@ -93,14 +93,14 @@ namespace HamzaIndividueelProject
 
                      ctx.SaveChanges();
                  }
-                 /* MessageBox.Show($"{tbFirstNameEmployee.Text} {tbLastNameEmployee.Text} is updated");
+                  MessageBox.Show($"{tbFirstNameEmployee.Text} {tbLastNameEmployee.Text} is updated");
 
 
                   tbFirstNameEmployee.Clear();
                   tbLastNameEmployee.Clear();
                   tbAddress.Clear();
                   tbCity.Clear();
-                  tbPostcode.Clear();*/
+                  tbPostcode.Clear();
         }
 
     }
@@ -148,6 +148,13 @@ namespace HamzaIndividueelProject
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             ItemList.Items.Clear();
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow hoofd = new MainWindow();
+            hoofd.Show();
+            this.Close();
         }
     }
 }

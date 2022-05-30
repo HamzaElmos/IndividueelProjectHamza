@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using HamzaIndividueelProject.Admin;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,6 +42,13 @@ namespace HamzaIndividueelProject
         {
             AdminCustomers customer = new AdminCustomers();
             customer.Show();
+            this.Close();
+        }
+
+        private void btnAdminProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AdminProduct product = new AdminProduct();
+            product.Show();
             this.Close();
         }
 
