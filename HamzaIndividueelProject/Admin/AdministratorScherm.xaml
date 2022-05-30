@@ -16,6 +16,7 @@
             <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click"/>
             <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"/>
             <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"/>
+            <Button x:Name="btnReturn" HorizontalAlignment="left" Content="GO BACK" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"/>
         </StackPanel>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -36,13 +37,13 @@
                 <Label Content="Address" Width="70"  VerticalAlignment="Bottom"/>
                 <TextBox x:Name="tbAddress" Text="{Binding ElementName=ItemList , Path=SelectedItem.Address, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
                 <Label Content="City" Width="70"  VerticalAlignment="Bottom"/>
-                <TextBox x:Name="tbCity" Width="150" Margin="0 20 30 0"></TextBox>
+                <TextBox x:Name="tbCity" Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.City, Mode=OneWay}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="0 20 30 0" Content="First Name"/>
                 <TextBox x:Name="tbFirstNameEmployee" Text="{Binding ElementName=ItemList , Path=SelectedItem.FirstName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
                 <Label Margin="0 20 30 0" Content="Postcode"/>
-                <TextBox x:Name="tbPostcode" Width="170" Margin="0 20 30 0"/>
+                <TextBox x:Name="tbPostcode" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Postcode, Mode=OneWay}"/>
             </StackPanel>
             
             

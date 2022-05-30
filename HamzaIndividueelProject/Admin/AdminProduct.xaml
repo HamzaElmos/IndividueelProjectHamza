@@ -1,0 +1,84 @@
+﻿<Window x:Class="HamzaIndividueelProject.Admin.AdminProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HamzaIndividueelProject.Admin"
+        mc:Ignorable="d"
+        Title="AdminProduct" Height="450" Width="1000">
+    <Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
+                <Button Content="tweede"/>
+                <!-- alle buttons -->
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left">
+                <Button  x:Name="btnAddProduct" Content="Add Product" Width="100"  Margin="20 20 20 20"/>
+                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" />
+                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" />
+                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100"  />
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="GO BACK" Margin="20 20 20 20" Width="100" />
+            </StackPanel>
+            <StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+
+                </StackPanel>
+                <!--gridpanel-->
+                <StackPanel Orientation="Horizontal">
+                    <Label  Content="Brand Name" Width="90" HorizontalAlignment="left" Margin="0 20 30 0"/>
+
+                    <ComboBox x:Name="cbBrandName" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.BrandName, Mode=OneWay}" Margin="0 20 30 0">
+                        <ComboBoxItem Content="VOLKSWAGEN"/>
+                        <ComboBoxItem Content="SKODA"/>
+                        <ComboBoxItem Content="AUTOS"/>
+                        <ComboBoxItem Content="BENTLEY"/>
+                    </ComboBox>
+                    <!-- <TextBox x:Name="tbGarageName" Text="{Binding ElementName=ItemList , Path=SelectedItem.CustomerName, Mode=OneWay}" Width="166" Margin="0 20 30 0"></TextBox>-->
+                    <Label Content="Supplier" Width="70"  VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbSupplier" Text="{Binding ElementName=ItemList , Path=SelectedItem.Supplier, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                    <Label Content="Quantity" Width="70"  VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Margin="0 20 30 0" Content="Model Name"/>
+                    <TextBox x:Name="tbModelName" Text="{Binding ElementName=ItemList , Path=SelectedItem.ModelName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                    <Label Margin="0 20 30 0" Content="Purchase Price"/>
+                    <TextBox x:Name="tbPurchasePrice" Width="170" Text="{Binding ElementName=ItemList , Path=SelectedItem.PurchasePrice, Mode=OneWay}" Margin="0 20 30 0"/>
+                    <Label Content="Unit Price" Margin="0 20 30 0"/>
+                    <TextBox x:Name="tbUnitPrice" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
+                </StackPanel>
+
+
+                <!--gridpanel view-->
+                <ListView x:Name="ItemList" Margin="5 20 5 0" VerticalAlignment="Top">
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Clear"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
+                            <GridViewColumn Header="Brand Name" DisplayMemberBinding="{Binding BrandName}" Width="130"/>
+                            <GridViewColumn Header="Model Name" DisplayMemberBinding="{Binding ModelName}" Width="130"/>
+                            <GridViewColumn Header="Supplier" DisplayMemberBinding="{Binding Supplier}" Width="130"/>
+                            <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="130"/>
+                            <GridViewColumn Header="Purchase Price" DisplayMemberBinding="{Binding PurchasePrice}" Width="110"/>
+                            <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
+                            
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+
+
+
+
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
