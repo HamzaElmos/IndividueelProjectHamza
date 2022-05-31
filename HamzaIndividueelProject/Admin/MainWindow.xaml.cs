@@ -52,6 +52,20 @@ namespace HamzaIndividueelProject
             this.Close();
         }
 
+        private void btnSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            AdminSuppliers suppliers = new AdminSuppliers();
+            suppliers.Show();
+            this.Close ();
+        }
+
+        private void btnOrders_Click(object sender, RoutedEventArgs e)
+        {
+            AdminOrders orders = new AdminOrders();
+            orders.Show();
+            this.Close();
+        }
+
         /* private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
 

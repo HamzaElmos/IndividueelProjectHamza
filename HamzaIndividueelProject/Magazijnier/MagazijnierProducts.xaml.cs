@@ -12,18 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HamzaIndividueelProject.Admin
+namespace HamzaIndividueelProject.Magazijnier
 {
     /// <summary>
-    /// Interaction logic for AdminProduct.xaml
+    /// Interaction logic for MagazijnierProducts.xaml
     /// </summary>
-    public partial class AdminProduct : Window
+    public partial class MagazijnierProducts : Window
     {
-       
-        public AdminProduct()
+        public MagazijnierProducts()
         {
             InitializeComponent();
         }
+
         public List<Products> DatabaseProducts { get; private set; }
 
         public void Create()
@@ -33,10 +33,9 @@ namespace HamzaIndividueelProject.Admin
                 string brandname = cbBrandName.Text;
                 string modelname = tbModelName.Text;
                 string supplier = tbSupplier.Text;
-                decimal unitprice = Convert.ToDecimal( tbUnitPrice.Text);
-                decimal purchaseprice = Convert.ToDecimal( tbPurchasePrice.Text);
-                int quantity = Convert.ToInt32( tbQuantity.Text);
-
+                decimal unitprice = Convert.ToDecimal(tbUnitPrice.Text);
+                decimal purchaseprice = Convert.ToDecimal(tbPurchasePrice.Text);
+                int quantity = Convert.ToInt32(tbQuantity.Text);
 
 
                 if (brandname != null && modelname != null && supplier != null)
@@ -139,11 +138,7 @@ namespace HamzaIndividueelProject.Admin
             Delete();
         }
 
-        private void btnReturn_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow hoofd = new MainWindow();
-            hoofd.Show();
-            this.Close();
-        }
+       
     }
 }
+

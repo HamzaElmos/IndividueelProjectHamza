@@ -34,7 +34,7 @@ namespace HamzaIndividueelProject
                 var address = tbAddress.Text;
                 var departement = cbDepartement.Text;
                 var city = tbCity.Text;
-                var postcode = tbPostcode.Text;
+                var postcode =  tbPostcode.Text;
 
 
                 if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
@@ -68,7 +68,7 @@ namespace HamzaIndividueelProject
               tbPostcode.Clear();
 
             }
-            public void Update()
+         public void Update()
          {
              using (Context ctx = new Context())
              {
@@ -102,8 +102,7 @@ namespace HamzaIndividueelProject
                   tbCity.Clear();
                   tbPostcode.Clear();
         }
-
-    }
+        }
         public void Delete()
         {
 

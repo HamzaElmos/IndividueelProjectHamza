@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HamzaIndividueelProject.Classes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,11 @@ namespace HamzaIndividueelProject
         public DbSet<Inventory> Inventory { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }
         public DbSet<Products> Products { get; set; }
+
+        public DbSet<Orders> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

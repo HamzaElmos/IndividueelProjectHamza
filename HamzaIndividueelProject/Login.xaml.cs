@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using HamzaIndividueelProject.Magazijnier;
+using HamzaIndividueelProject.Verkoper;
+using System.Windows;
 
 namespace HamzaIndividueelProject
 {
@@ -49,13 +51,13 @@ namespace HamzaIndividueelProject
                     break;
 
                 case "Verkoper":
-                    Verkoper verkoper = new Verkoper();
+                    Verkoop verkoper  = new Verkoop ();
                     verkoper.Show();
                     this.Close();
                     break;
                 case "Magazijnier":
-                    MainWindow main = new MainWindow();
-                    main.Show();
+                    MagazijnierProducts magazijn = new MagazijnierProducts();
+                    magazijn.Show();
                     this.Close();
                     break;
             }
@@ -63,6 +65,11 @@ namespace HamzaIndividueelProject
             // MainWindow dashboard = new MainWindow();
             //dashboard.Show();
             //this.Close(); 
+        }
+
+        private void txtUsername_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }
