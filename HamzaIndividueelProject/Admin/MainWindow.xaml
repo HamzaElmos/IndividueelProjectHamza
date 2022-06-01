@@ -27,7 +27,7 @@
         <StackPanel Margin="40,50,40,38" Grid.Column="2" x:Name="extrabuttons"  Background="#e9ecef">
             <Button x:Name="btnSupplier" Margin="20 30 20 30" Click="btnSupplier_Click">Supplier Data</Button>
             <Button x:Name="btnOrders" Margin="20 30 20 30" Click="btnOrders_Click">Order Data</Button>
-            <Button x:Name="btnAddUser" Margin="20 30 20 30">Add User</Button>
+            <Button x:Name="btnAddUser" Margin="20 30 20 30" Click="btnAddUser_Click">Add User</Button>
         </StackPanel>
         
     </Grid>

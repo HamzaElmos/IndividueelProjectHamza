@@ -66,6 +66,13 @@ namespace HamzaIndividueelProject
             this.Close();
         }
 
+        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            AdminUsers users = new AdminUsers();
+            users.Show();
+            this.Close();
+        }
+
         /* private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
 

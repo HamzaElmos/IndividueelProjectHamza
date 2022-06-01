@@ -19,13 +19,16 @@ namespace HamzaIndividueelProject
         public DbSet<Products> Products { get; set; }
 
         public DbSet<Orders> Orders { get; set; }
+
         public DbSet<User> Users { get; set; }
+
+        public DbSet<NewLogin> NewLogin { get; set; }
 
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=LAPTOP-GUFE3U9Q\SQLEXPRESS;Database=LoginData;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=LAPTOP-GUFE3U9Q\SQLEXPRESS;Database=DataProject;Trusted_Connection=True;");
         }
     }
 }
