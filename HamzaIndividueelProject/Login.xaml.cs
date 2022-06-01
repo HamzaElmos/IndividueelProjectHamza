@@ -1,5 +1,6 @@
 ﻿using HamzaIndividueelProject.Magazijnier;
 using HamzaIndividueelProject.Verkoper;
+using System.Linq;
 using System.Windows;
 
 namespace HamzaIndividueelProject
@@ -17,31 +18,42 @@ namespace HamzaIndividueelProject
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
-            using (Context ctx = new Context())
+           /* var username = txtUsername.Text;
+            var password = txtPassword.Password;
+
+            using (Context context = new Context())
             {
-                if(cbProfile.Text != null && txtPassword.Text != null && txtUsername.Text != null)
+
+                bool userfound = context.Users.Any(user => user.Username == username && user.PasswordHash == password);
+
+                if (userfound)
+                {
+                    GrantAccess();
+
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Username or Password");
+                }
+
+            }
+
+            */
+             using (Context ctx = new Context())
+            {
+                if(cbProfile.Text != null && txtPassword.Password != null && txtUsername.Text != null)
                 {
                     ctx.LoginData.Add(new LoginData()
                     {
                         Profile = cbProfile.Text,
                         Username = txtUsername.Text,
-                        Password = txtPassword.Text
+                        Password = txtPassword.Password
 
                     }
                     );
 
                     ctx.SaveChanges();
-                }  
-                
-
-            }
-
-
-
-            //MessageBox.Show($"{txtUsername.Text} is added to list");
-            txtUsername.Clear();
-            txtPassword.Clear();
-
+                }               
             switch (cbProfile.Text)
             {
                 case "Administrator":
@@ -51,7 +63,7 @@ namespace HamzaIndividueelProject
                     break;
 
                 case "Verkoper":
-                    Verkoop verkoper  = new Verkoop ();
+                    Verkoop verkoper = new Verkoop();
                     verkoper.Show();
                     this.Close();
                     break;
@@ -61,15 +73,37 @@ namespace HamzaIndividueelProject
                     this.Close();
                     break;
             }
+            }
+            txtUsername.Clear();
+            txtPassword.Clear();
 
-            // MainWindow dashboard = new MainWindow();
-            //dashboard.Show();
-            //this.Close(); 
+
+
+
         }
 
-        private void txtUsername_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        public void GrantAccess()
         {
+            switch (cbProfile.Text)
+            {
+                case "Administrator":
+                    MainWindow hoofd = new MainWindow();
+                    hoofd.Show();
+                    this.Close();
+                    break;
 
+                case "Verkoper":
+                    Verkoop verkoper = new Verkoop();
+                    verkoper.Show();
+                    this.Close();
+                    break;
+                case "Magazijnier":
+                    MagazijnierProducts magazijn = new MagazijnierProducts();
+                    magazijn.Show();
+                    this.Close();
+                    break;
+            }
         }
+        
     }
 }

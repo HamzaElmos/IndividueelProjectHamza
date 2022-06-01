@@ -37,15 +37,16 @@
                     </ComboBox>
                     <Label Content="Quantity" Width="70"  VerticalAlignment="Bottom"/>
                     <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="170" Margin="0 20 30 0" ></TextBox>
-
+                    <Button x:Name="btnFilterBy"  Margin="80 20 30 0" Width="150" />
                 </StackPanel>
+                
+                
                 <StackPanel Orientation="Horizontal">
                     <Label Margin="0 20 30 0" Content="Model Name"/>
                     <TextBox  x:Name="tbModelName" Text="{Binding ElementName=ItemList , Path=SelectedItem.ModelName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
                     <Label Content="Unit Price" Margin="0 20 30 0"/>
                     <TextBox x:Name="tbUnitPrice" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
-                    <Button Content="Total" Margin="0 20 30 0" Width="50" Click="Button_Click"/>
-                    <TextBox x:Name="tbTotal" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Total, Mode=OneWay}"/>
+
                 </StackPanel>
                 
                 <StackPanel Orientation="Horizontal">
@@ -53,6 +54,8 @@
                     <TextBox x:Name="tbGarageName" Margin="0 20 30 0" Text="{Binding SelectedItem.GarageName, ElementName=ItemList, Mode=OneWay}" Width="170"/>
                     <Label Margin="0 20 30 0" Content="Contact Name"/>
                     <TextBox x:Name="tbContactNameOrder" Margin="0 20 30 0" Text="{Binding SelectedItem.ContactNameOrder, ElementName=ItemList, Mode=OneWay}" Width="170"/>
+                    <Button Content="Total" Margin="0 20 30 0" Width="50" Click="Button_Click"/>
+                    <TextBox x:Name="tbTotal" Width="170" Margin="0 20 30 0" Text="{Binding SelectedItem.Total, ElementName= ItemList, Mode=OneWay}"/>
                 </StackPanel>
 
 
