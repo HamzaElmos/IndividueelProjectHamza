@@ -4,42 +4,41 @@
 
 namespace HamzaIndividueelProject.Migrations
 {
-    public partial class DepartementUser : Migration
+    public partial class employees : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Departement",
-                table: "NewLogin");
+                name: "Password",
+                table: "Employees");
 
             migrationBuilder.DropColumn(
-                name: "Departement",
-                table: "LoginData");
+                name: "Username",
+                table: "Employees");
 
-            migrationBuilder.AddColumn<string>(
-                name: "Departement",
-                table: "Users",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.RenameColumn(
+                name: "DatedJoined",
+                table: "NewUsers",
+                newName: "DateJoined");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Departement",
-                table: "Users");
+            migrationBuilder.RenameColumn(
+                name: "DateJoined",
+                table: "NewUsers",
+                newName: "DatedJoined");
 
             migrationBuilder.AddColumn<string>(
-                name: "Departement",
-                table: "NewLogin",
+                name: "Password",
+                table: "Employees",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
-                name: "Departement",
-                table: "LoginData",
+                name: "Username",
+                table: "Employees",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");

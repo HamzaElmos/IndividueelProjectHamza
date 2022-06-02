@@ -1,5 +1,4 @@
-﻿using HamzaIndividueelProject.Admin;
-using HamzaIndividueelProject.Classes;
+﻿using HamzaIndividueelProject.Classes;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,13 +20,14 @@ namespace HamzaIndividueelProject
 
         public DbSet<Orders> Orders { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<NewUser> NewUsers { get; set; }
+
 
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=LAPTOP-GUFE3U9Q\SQLEXPRESS;Database=LoginData;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=LAPTOP-GUFE3U9Q\SQLEXPRESS;Database=Trying;Trusted_Connection=True;");
         }
     }
 }

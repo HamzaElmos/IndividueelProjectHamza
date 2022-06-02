@@ -25,7 +25,7 @@ namespace HamzaIndividueelProject.Admin
             InitializeComponent();
         }
 
-        public List<User> DatabaseUsers { get; private set; }
+        public List<NewUser> DatabaseNewUser { get; private set; }
 
         public void Create()
         {
@@ -35,13 +35,14 @@ namespace HamzaIndividueelProject.Admin
                 string lastname = tbLastName.Text;
                 string username = tbUsername.Text;
                 string password = tbPassword.Text;
+                string departement = cbDepartement.Text;
                 DateTime dateTime = tbJoined.DisplayDate;
 
 
 
                 if (name != null && lastname != null && username != null && password != null && dateTime != null)
                 {
-                    ctx.Users.Add(new User() { Name = name, LastName = lastname, Username = username, PasswordHash = password, DatedJoined = dateTime });
+                    ctx.NewUsers.Add(new NewUser() { Name = name, LastName = lastname, Username = username, Password = password, DateJoined = dateTime, Departement=departement});
                     ctx.SaveChanges();
                 }
                 else
@@ -66,8 +67,8 @@ namespace HamzaIndividueelProject.Admin
         {
             using (Context ctx = new Context())
             {
-                DatabaseUsers = ctx.Users.ToList();
-                ItemList.ItemsSource = DatabaseUsers;
+                DatabaseNewUser = ctx.NewUsers.ToList();
+                ItemList.ItemsSource = DatabaseNewUser;
 
             }
         }
@@ -76,22 +77,24 @@ namespace HamzaIndividueelProject.Admin
         {
             using (Context ctx = new Context())
             {
-                User selectedUser = ItemList.SelectedItem as User;
+                NewUser selectedNewUser = ItemList.SelectedItem as NewUser;
                 string name = tbFirstName.Text;
                 string lastname = tbLastName.Text;
                 string username = tbUsername.Text;
                 string password = tbPassword.Text;
+                string departement = cbDepartement.Text;
                 DateTime dateTime = tbJoined.DisplayDate;
 
 
                 if (name != null && lastname != null && username != null && password != null && dateTime != null)
                 {
-                    User user = ctx.Users.Find(selectedUser.ID);
+                    NewUser user = ctx.NewUsers.Find(selectedNewUser.ID);
                     user.Name = name;
                     user.Username = username;
                     user.LastName = lastname;
-                    user.PasswordHash = password;
-                    user.DatedJoined = dateTime;
+                    user.Password = password;
+                    user.Departement = departement;
+                    user.DateJoined = dateTime;
                     ctx.SaveChanges();
                 }
                 MessageBox.Show($"{tbUsername.Text} is updated");
@@ -103,13 +106,13 @@ namespace HamzaIndividueelProject.Admin
 
             using (Context ctx = new Context())
             {
-                User selectedUser = ItemList.SelectedItem as User;
+                Employees selectedUser = ItemList.SelectedItem as Employees;
 
 
                 if (selectedUser != null)
                 {
 
-                    User user = ctx.Users.Single(x => x.ID == selectedUser.ID);
+                    Employees user = ctx.Employees.Single(x => x.ID == selectedUser.ID);
 
                     ctx.Remove(user);
                     ctx.SaveChanges();

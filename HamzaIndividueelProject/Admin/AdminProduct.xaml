@@ -49,6 +49,11 @@
                     <TextBox x:Name="tbPurchasePrice" Width="170" Text="{Binding ElementName=ItemList , Path=SelectedItem.PurchasePrice, Mode=OneWay}" Margin="0 20 30 0"/>
                     <Label Content="Unit Price" Margin="0 20 30 0"/>
                     <TextBox x:Name="tbUnitPrice" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Margin" Width="80" Margin="0 20 20 0" Click="Button_Click"/>
+                    <TextBox x:Name="tbMargin" Width="80" Margin="0 20 20 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Margin, Mode=OneWay}"/>
                 </StackPanel>
 
 
@@ -68,6 +73,7 @@
                             <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="130"/>
                             <GridViewColumn Header="Purchase Price" DisplayMemberBinding="{Binding PurchasePrice}" Width="110"/>
                             <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
+                            <GridViewColumn Header="Margin" DisplayMemberBinding="{Binding Margin}" Width="80"/>
                             
                         </GridView>
                     </ListView.View>

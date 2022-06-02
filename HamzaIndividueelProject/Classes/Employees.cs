@@ -11,15 +11,14 @@ namespace HamzaIndividueelProject
     public class Employees
     {
         [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string Postcode { get; set; }
         public string Departement { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public DateTime DateJoined { get; set; }
 
         //public string InitiateUser(string username, string password)
         //{
