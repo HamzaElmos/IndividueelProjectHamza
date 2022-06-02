@@ -35,13 +35,14 @@ namespace HamzaIndividueelProject.Admin
                 string supplier = tbSupplier.Text;
                 decimal unitprice = Convert.ToDecimal( tbUnitPrice.Text);
                 decimal purchaseprice = Convert.ToDecimal( tbPurchasePrice.Text);
+                decimal margin = Convert.ToDecimal( tbMargin.Text);
                 int quantity = Convert.ToInt32( tbQuantity.Text);
 
 
 
                 if (brandname != null && modelname != null && supplier != null)
                 {
-                    ctx.Products.Add(new Products() { BrandName = brandname, ModelName = modelname, Supplier = supplier, UnitPrice = unitprice, PurchasePrice = purchaseprice, Quantity = quantity });
+                    ctx.Products.Add(new Products() { BrandName = brandname, ModelName = modelname, Supplier = supplier, UnitPrice = unitprice, PurchasePrice = purchaseprice, Quantity = quantity, Margin = margin});
                     ctx.SaveChanges();
                 }
                 tbModelName.Clear();
@@ -49,6 +50,7 @@ namespace HamzaIndividueelProject.Admin
                 tbUnitPrice.Clear();
                 tbPurchasePrice.Clear();
                 tbQuantity.Clear();
+                tbMargin.Clear();
 
 
 
@@ -78,6 +80,7 @@ namespace HamzaIndividueelProject.Admin
                 string supplier = tbSupplier.Text;
                 decimal unitprice = Convert.ToDecimal(tbUnitPrice.Text);
                 decimal purchaseprice = Convert.ToDecimal(tbPurchasePrice.Text);
+                decimal margin = Convert.ToDecimal(tbMargin.Text);
                 int quantity = Convert.ToInt32(tbQuantity.Text);
 
                 if (brandname != null && modelname != null && supplier != null)
@@ -88,6 +91,7 @@ namespace HamzaIndividueelProject.Admin
                     product.Supplier = supplier;
                     product.UnitPrice = unitprice;
                     product.PurchasePrice = purchaseprice;
+                    product.Margin = margin;
                     product.Quantity = quantity;
 
                     ctx.SaveChanges();
@@ -144,6 +148,17 @@ namespace HamzaIndividueelProject.Admin
             MainWindow hoofd = new MainWindow();
             hoofd.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
+            decimal unit = Convert.ToDecimal(tbUnitPrice.Text);
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+
+            decimal margin = (decimal)((unit - purchase) * quantity);
+
+            tbMargin.Text= margin.ToString();
         }
     }
 }

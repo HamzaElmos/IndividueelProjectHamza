@@ -83,7 +83,7 @@ namespace HamzaIndividueelProject
 
                  if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
                  {
-                     Employees employee = ctx.Employees.Find(selectedEmployee.Id);
+                     Employees employee = ctx.Employees.Find(selectedEmployee.ID);
                      employee.FirstName = name;
                      employee.LastName= lastname;
                      employee.Address = address;
@@ -114,7 +114,7 @@ namespace HamzaIndividueelProject
                 if(selectedEmployee != null)
                 {
 
-                    Employees employee = ctx.Employees.Single(x => x.Id == selectedEmployee.Id);
+                    Employees employee = ctx.Employees.Single(x => x.ID == selectedEmployee.ID);
 
                     ctx.Remove(employee);
                     ctx.SaveChanges();

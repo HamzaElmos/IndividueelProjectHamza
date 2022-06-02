@@ -23,6 +23,8 @@ namespace HamzaIndividueelProject
         public decimal UnitPrice { get; set; }
 
         public decimal PurchasePrice { get; set; }
+        public decimal Margin { get; set; }
+
     }
     
 }
