@@ -4,7 +4,7 @@
 
 namespace HamzaIndividueelProject.Migrations
 {
-    public partial class second : Migration
+    public partial class OrderDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

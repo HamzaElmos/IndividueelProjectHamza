@@ -32,11 +32,11 @@
                     <Label Content="Password" Width="70"  VerticalAlignment="Bottom"/>
                     <TextBox x:Name="tbPassword"  Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.PasswordHash, Mode=OneWay}"></TextBox>
                      <Label Content="Departement" Margin="30 20 0 0"/>
-                    <ComboBox x:Name="cbDepartement" Margin="30 20 0 0" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.Departement, Mode=OneWay}">
+                    <!-- <ComboBox x:Name="cbDepartement" Margin="30 20 0 0" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.Departement, Mode=OneWay}">
                         <ComboBoxItem Content="ADMINISTRATOR"/>
                         <ComboBoxItem Content="MAGAZIJNIER"/>
                         <ComboBoxItem Content="VERKOPER"/>
-                    </ComboBox>
+                    </ComboBox>-->
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Margin="0 20 30 0" Content="First Name"/>
@@ -63,8 +63,8 @@
                             <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="130"/>
                             <GridViewColumn Header="Password" DisplayMemberBinding="{Binding PasswordHash}" Width="130"/>
                             <GridViewColumn Header="Joined" DisplayMemberBinding="{Binding DatedJoined}" Width="80"/>
-                             <GridViewColumn Header="Departement" DisplayMemberBinding="{Binding Departement}" Width="80"/>
-                        
+                           <!--   <GridViewColumn Header="Departement" DisplayMemberBinding="{Binding Departement}" Width="80"/>
+                        -->
                             </GridView>
                     </ListView.View>
                 </ListView>
