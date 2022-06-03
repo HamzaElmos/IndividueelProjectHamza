@@ -7,10 +7,9 @@
         mc:Ignorable="d"
         Title="AdminSuppliers" Height="450" Width="1150">
     <Grid>
-        <DockPanel>
+        <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
                 <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
-                <Button Content="tweede"/>
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
@@ -31,18 +30,21 @@
                     <TextBox x:Name="tbSupplierName" Text="{Binding ElementName=ItemList , Path=SelectedItem.SupplierName, Mode=OneWay}" Width="166" Margin="0 20 30 0"></TextBox>
                     <Label Content="Address" Width="70"  VerticalAlignment="Bottom"/>
                     <TextBox x:Name="tbAddress" Text="{Binding ElementName=ItemList , Path=SelectedItem.Address, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
-                    <Label Content="City" Width="70"  VerticalAlignment="Bottom"/>
+                    <Label Margin="10 0 0 0 " Content="City" Width="70"  VerticalAlignment="Bottom"/>
                     <TextBox x:Name="tbCity"  Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.City, Mode=OneWay}"></TextBox>
-                    <Label Content="Phone" Margin="0 20 30 0"/>
-                    <TextBox x:Name="tbPhone" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Phone, Mode=OneWay}"/>
+                    
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Margin="0 20 30 0" Content="Contact Name"/>
                     <TextBox x:Name="tbContactName" Text="{Binding ElementName=ItemList , Path=SelectedItem.ContactName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
-                    <Label Margin="0 20 30 0" Content="Postcode"/>
+                    <Label Margin="0 20 20 0" Content="Postcode"/>
                     <TextBox x:Name="tbPostcode" Width="170" Text="{Binding ElementName=ItemList , Path=SelectedItem.PostalCode, Mode=OneWay}" Margin="0 20 30 0"/>
-                    <Label Content="Country" Margin="0 20 30 0"/>
-                    <TextBox x:Name="tbCountry" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Country, Mode=OneWay}"/>
+                    <Label Content="Country" Margin="0 20 20 0"/>
+                    <TextBox x:Name="tbCountry" Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Country, Mode=OneWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Phone" Margin="0 20 30 0"/>
+                    <TextBox x:Name="tbPhone" Width="170" Margin="44 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Phone, Mode=OneWay}"/>
                 </StackPanel>
 
 

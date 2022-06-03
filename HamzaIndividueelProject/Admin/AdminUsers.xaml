@@ -7,10 +7,9 @@
         mc:Ignorable="d"
         Title="AdminUsers" Height="450" Width="1100">
     <Grid>
-        <DockPanel>
+        <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
                 <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
-                <Button Content="tweede"/>
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
@@ -27,11 +26,11 @@
                 </StackPanel>
                 <!--gridpanel-->
                 <StackPanel Orientation="Horizontal">
-                    <Label  Content="Username" Width="90" HorizontalAlignment="left" Margin="0 20 30 0"/>
-                    <TextBox x:Name="tbUsername" Text="{Binding ElementName=ItemList , Path=SelectedItem.Username, Mode=OneWay}" Width="166" Margin="0 20 30 0"></TextBox>
+                    <Label  Content="Username" Width="90" HorizontalAlignment="left" Margin="0 20 10 0"/>
+                    <TextBox x:Name="tbUsername" Text="{Binding ElementName=ItemList , Path=SelectedItem.Username, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
                     <Label Content="Password" Width="70"  VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbPassword"  Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Password, Mode=OneWay}"></TextBox>
-                     <Label Content="Departement" Margin="30 20 0 0"/>
+                    <TextBox x:Name="tbPassword"  Width="150" Margin="24 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Password, Mode=OneWay}"></TextBox>
+                     <Label Content="Departement" Margin="0 20 0 0"/>
                      <ComboBox x:Name="cbDepartement" Margin="30 20 0 0" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.Departement, Mode=OneWay}">
                         <ComboBoxItem Content="ADMINISTRATOR"/>
                         <ComboBoxItem Content="MAGAZIJNIER"/>
@@ -40,11 +39,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Margin="0 20 30 0" Content="First Name"/>
-                    <TextBox x:Name="tbFirstName" Text="{Binding ElementName=ItemList , Path=SelectedItem.Name, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                    <TextBox x:Name="tbFirstName" Text="{Binding ElementName=ItemList , Path=SelectedItem.Name, Mode=OneWay}" Width="170" Margin="0 20 30 0" Height="25"></TextBox>
                     <Label Margin="0 20 30 0" Content="Last Name"/>
-                    <TextBox x:Name="tbLastName" Width="170" Text="{Binding ElementName=ItemList , Path=SelectedItem.LastName, Mode=OneWay}" Margin="0 20 30 0"/>
+                    <TextBox x:Name="tbLastName" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.LastName, Mode=OneWay}" Margin="0 20 30 0" Height="25"/>
                     <Label Content="Joined" Margin="0 20 30 0"/>
-                    <DatePicker x:Name="tbJoined" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.DateJoined, Mode=OneWay}"/>
+                    <DatePicker x:Name="tbJoined" Width="152" Margin="34 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.DateJoined, Mode=OneWay}" Height="25"/>
                 </StackPanel>
 
 

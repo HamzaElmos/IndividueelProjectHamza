@@ -77,38 +77,45 @@ namespace HamzaIndividueelProject.Admin
             using (Context ctx = new Context())
             {
                 Suppliers selectedSuppliers= ItemList.SelectedItem as Suppliers;
-
-                string suppliername = tbSupplierName.Text;
-                string contactname = tbContactName.Text;
-                string address = tbAddress.Text;
-                string country = tbCountry.Text;
-                string city = tbCity.Text;
-                string postcode = tbPostcode.Text;
-                string phone = tbPhone.Text;
-
-                if (suppliername != null && contactname != null && address != null && country != null && city != null && postcode != null && phone != null)
+                if(selectedSuppliers == null)
                 {
-                    Suppliers supplier = ctx.Suppliers.Find(selectedSuppliers.ID);
-                    supplier.SupplierName = suppliername;
-                    supplier.ContactName = contactname;
-                    supplier.Address = address;
-                    supplier.City = city;
-                    supplier.PostalCode = postcode;
-                    supplier.Country = country;
-                    supplier.Phone = phone;
-
-                    ctx.SaveChanges();
+                    MessageBox.Show("Nothing is selected", "Error");
                 }
-                MessageBox.Show($"{tbSupplierName.Text} is updated");
+                else
+                {
+                    string suppliername = tbSupplierName.Text;
+                    string contactname = tbContactName.Text;
+                    string address = tbAddress.Text;
+                    string country = tbCountry.Text;
+                    string city = tbCity.Text;
+                    string postcode = tbPostcode.Text;
+                    string phone = tbPhone.Text;
 
-                tbSupplierName.Clear();
-                tbContactName.Clear();
-                tbContactName.Clear();
-                tbAddress.Clear();
-                tbCity.Clear();
-                tbPostcode.Clear();
-                tbCountry.Clear();
-                tbPhone.Clear();
+                    if (suppliername != null && contactname != null && address != null && country != null && city != null && postcode != null && phone != null)
+                    {
+                        Suppliers supplier = ctx.Suppliers.Find(selectedSuppliers.ID);
+                        supplier.SupplierName = suppliername;
+                        supplier.ContactName = contactname;
+                        supplier.Address = address;
+                        supplier.City = city;
+                        supplier.PostalCode = postcode;
+                        supplier.Country = country;
+                        supplier.Phone = phone;
+
+                        ctx.SaveChanges();
+                    }
+                    MessageBox.Show($"{tbSupplierName.Text} is updated");
+
+                    tbSupplierName.Clear();
+                    tbContactName.Clear();
+                    tbContactName.Clear();
+                    tbAddress.Clear();
+                    tbCity.Clear();
+                    tbPostcode.Clear();
+                    tbCountry.Clear();
+                    tbPhone.Clear();
+                }
+                
             }
 
         }

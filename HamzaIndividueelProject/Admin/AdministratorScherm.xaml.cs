@@ -74,33 +74,41 @@ namespace HamzaIndividueelProject
              {
                  Employees selectedEmployee = ItemList.SelectedItem as Employees;
 
-                 var name = tbFirstNameEmployee.Text;
-                 var lastname = tbLastNameEmployee.Text;
-                 var address = tbAddress.Text;
-                 var departement = cbDepartement.Text;
-                 var city = tbCity.Text;
-                 var postcode = tbPostcode.Text;
+                if(selectedEmployee==null)
+                {
+                    MessageBox.Show("Nothing is selected","Error");
+                }
+                else
+                {
+                    var name = tbFirstNameEmployee.Text;
+                    var lastname = tbLastNameEmployee.Text;
+                    var address = tbAddress.Text;
+                    var departement = cbDepartement.Text;
+                    var city = tbCity.Text;
+                    var postcode = tbPostcode.Text;
 
-                 if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
-                 {
-                     Employees employee = ctx.Employees.Find(selectedEmployee.ID);
-                     employee.FirstName = name;
-                     employee.LastName= lastname;
-                     employee.Address = address;
-                     employee.City = city;
-                     employee.Postcode = postcode;
-                    employee.Departement = departement;
+                    if (name != null && lastname != null && address != null && departement != null && city != null && postcode != null)
+                    {
+                        Employees employee = ctx.Employees.Find(selectedEmployee.ID);
+                        employee.FirstName = name;
+                        employee.LastName = lastname;
+                        employee.Address = address;
+                        employee.City = city;
+                        employee.Postcode = postcode;
+                        employee.Departement = departement;
 
-                     ctx.SaveChanges();
-                 }
-                  MessageBox.Show($"{tbFirstNameEmployee.Text} {tbLastNameEmployee.Text} is updated");
+                        ctx.SaveChanges();
+                    }
+                    MessageBox.Show($"{tbFirstNameEmployee.Text} {tbLastNameEmployee.Text} is updated");
 
 
-                  tbFirstNameEmployee.Clear();
-                  tbLastNameEmployee.Clear();
-                  tbAddress.Clear();
-                  tbCity.Clear();
-                  tbPostcode.Clear();
+                    tbFirstNameEmployee.Clear();
+                    tbLastNameEmployee.Clear();
+                    tbAddress.Clear();
+                    tbCity.Clear();
+                    tbPostcode.Clear();
+                }
+                
         }
         }
         public void Delete()

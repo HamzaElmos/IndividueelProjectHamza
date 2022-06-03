@@ -77,27 +77,36 @@ namespace HamzaIndividueelProject.Admin
         {
             using (Context ctx = new Context())
             {
+
                 NewUser selectedNewUser = ItemList.SelectedItem as NewUser;
-                string name = tbFirstName.Text;
-                string lastname = tbLastName.Text;
-                string username = tbUsername.Text;
-                string password = tbPassword.Text;
-                string departement = cbDepartement.Text;
-                DateTime dateTime = tbJoined.DisplayDate;
-
-
-                if (name != null && lastname != null && username != null && password != null && dateTime != null)
+                if (selectedNewUser == null)
                 {
-                    NewUser user = ctx.NewUsers.Find(selectedNewUser.ID);
-                    user.Name = name;
-                    user.Username = username;
-                    user.LastName = lastname;
-                    user.Password = password;
-                    user.Departement = departement;
-                    user.DateJoined = dateTime;
-                    ctx.SaveChanges();
+                    MessageBox.Show("Nothing is selected", "Error");
                 }
-                MessageBox.Show($"{tbUsername.Text} is updated");
+                else
+                {
+                    string name = tbFirstName.Text;
+                    string lastname = tbLastName.Text;
+                    string username = tbUsername.Text;
+                    string password = tbPassword.Text;
+                    string departement = cbDepartement.Text;
+                    DateTime dateTime = tbJoined.DisplayDate;
+
+
+                    if (name != null && lastname != null && username != null && password != null && dateTime != null)
+                    {
+                        NewUser user = ctx.NewUsers.Find(selectedNewUser.ID);
+                        user.Name = name;
+                        user.Username = username;
+                        user.LastName = lastname;
+                        user.Password = password;
+                        user.Departement = departement;
+                        user.DateJoined = dateTime;
+                        ctx.SaveChanges();
+                    }
+                    MessageBox.Show($"{tbUsername.Text} is updated");
+                }
+               
             }
         }
 
