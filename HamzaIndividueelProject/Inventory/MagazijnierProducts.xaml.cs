@@ -35,12 +35,13 @@ namespace HamzaIndividueelProject.Magazijnier
                 string supplier = tbSupplier.Text;
                 decimal unitprice = Convert.ToDecimal(tbUnitPrice.Text);
                 decimal purchaseprice = Convert.ToDecimal(tbPurchasePrice.Text);
+                decimal margin = Convert.ToDecimal(tbMargin.Text);
                 int quantity = Convert.ToInt32(tbQuantity.Text);
 
 
                 if (brandname != null && modelname != null && supplier != null)
                 {
-                    ctx.Products.Add(new Products() { BrandName = brandname, ModelName = modelname, Supplier = supplier, UnitPrice = unitprice, PurchasePrice = purchaseprice, Quantity = quantity });
+                    ctx.Products.Add(new Products() { BrandName = brandname, ModelName = modelname, Supplier = supplier, UnitPrice = unitprice, PurchasePrice = purchaseprice, Quantity = quantity, Margin=margin });
                     ctx.SaveChanges();
                 }
                 tbModelName.Clear();
@@ -48,6 +49,7 @@ namespace HamzaIndividueelProject.Magazijnier
                 tbUnitPrice.Clear();
                 tbPurchasePrice.Clear();
                 tbQuantity.Clear();
+                tbMargin.Clear();
 
 
 
@@ -72,26 +74,37 @@ namespace HamzaIndividueelProject.Magazijnier
             {
                 Products selectedProduct = ItemList.SelectedItem as Products;
 
-                string brandname = cbBrandName.Text;
-                string modelname = tbModelName.Text;
-                string supplier = tbSupplier.Text;
-                decimal unitprice = Convert.ToDecimal(tbUnitPrice.Text);
-                decimal purchaseprice = Convert.ToDecimal(tbPurchasePrice.Text);
-                int quantity = Convert.ToInt32(tbQuantity.Text);
-
-                if (brandname != null && modelname != null && supplier != null)
+                if(selectedProduct == null)
                 {
-                    Products product = ctx.Products.Find(selectedProduct.OrderID);
-                    product.BrandName = brandname;
-                    product.ModelName = modelname;
-                    product.Supplier = supplier;
-                    product.UnitPrice = unitprice;
-                    product.PurchasePrice = purchaseprice;
-                    product.Quantity = quantity;
-
-                    ctx.SaveChanges();
+                    MessageBox.Show("Nothing is selected", "Error");
                 }
-                MessageBox.Show($"{cbBrandName.Text} {tbModelName.Text} is updated");
+                else
+                {
+                    string brandname = cbBrandName.Text;
+                    string modelname = tbModelName.Text;
+                    string supplier = tbSupplier.Text;
+                    decimal unitprice = Convert.ToDecimal(tbUnitPrice.Text);
+                    decimal purchaseprice = Convert.ToDecimal(tbPurchasePrice.Text);
+                    decimal margin = Convert.ToDecimal(tbMargin.Text);
+                    int quantity = Convert.ToInt32(tbQuantity.Text);
+
+                    if (brandname != null && modelname != null && supplier != null)
+                    {
+                        Products product = ctx.Products.Find(selectedProduct.OrderID);
+                        product.BrandName = brandname;
+                        product.ModelName = modelname;
+                        product.Supplier = supplier;
+                        product.UnitPrice = unitprice;
+                        product.Margin = margin;
+                        product.PurchasePrice = purchaseprice;
+                        product.Quantity = quantity;
+
+                        ctx.SaveChanges();
+                        MessageBox.Show($"{cbBrandName.Text} {tbModelName.Text} is updated");
+                    }
+                
+                }
+                
 
 
             }
@@ -138,7 +151,27 @@ namespace HamzaIndividueelProject.Magazijnier
             Delete();
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
+            decimal unit = Convert.ToDecimal(tbUnitPrice.Text);
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+
+            decimal margin = (decimal)((unit - purchase) * quantity);
+
+            tbMargin.Text = margin.ToString();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Loggin Off", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+        }
     }
 }
 

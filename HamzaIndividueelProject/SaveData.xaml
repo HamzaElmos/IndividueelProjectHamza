@@ -1,0 +1,25 @@
+﻿<Window x:Class="HamzaIndividueelProject.SaveData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HamzaIndividueelProject"
+        mc:Ignorable="d"
+        Title="SaveData" Height="450" Width="800">
+    <Grid>
+        <DockPanel Background="#E6FBF1">
+            <StackPanel DockPanel.Dock="Top" >
+                <Button x:Name="btnSearch"  Content="Search" Click="btnSearch_Click"/>
+                <TextBox x:Name="tbUploadFile"/>
+            </StackPanel>
+            <StackPanel Margin="20 0 30 0" DockPanel.Dock="Left">
+                <Button Width="60" Margin="20 0 0 0">Update</Button>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" >
+                <DataGrid x:Name="DG"/>
+            </StackPanel>
+        </DockPanel>
+        
+        
+    </Grid>
+</Window>

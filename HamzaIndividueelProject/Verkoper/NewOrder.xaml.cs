@@ -159,6 +159,15 @@ namespace HamzaIndividueelProject.Verkoper
             this.Close();
         }
 
-        
+        private void lblName_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Loggin Off", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+        }
     }
 }

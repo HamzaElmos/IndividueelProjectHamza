@@ -71,26 +71,34 @@ namespace HamzaIndividueelProject
             {
                 Customers selectedCustomer = ItemList.SelectedItem as Customers;
 
-                var garagename = tbGarageName.Text;
-                var contactname = tbContactName.Text;
-                var address = tbAddress.Text;
-                var country = tbCountry.Text;
-                var city = tbCity.Text;
-                var postcode = tbPostcode.Text;
-
-                if (garagename != null && contactname != null && address != null && country != null && city != null && postcode != null)
+                if(selectedCustomer == null)
                 {
-                    Customers customer = ctx.Customers.Find(selectedCustomer.ID);
-                    customer.CustomerName = garagename;
-                    customer.ContactName = contactname;
-                    customer.Address = address;
-                    customer.City = city;
-                    customer.PostalCode = postcode;
-                    customer.Country = country;
-
-                    ctx.SaveChanges();
+                    MessageBox.Show("Nothing is selected", "Error");
                 }
-                MessageBox.Show($"{tbGarageName.Text} is updated");
+                else
+                {
+                    var garagename = tbGarageName.Text;
+                    var contactname = tbContactName.Text;
+                    var address = tbAddress.Text;
+                    var country = tbCountry.Text;
+                    var city = tbCity.Text;
+                    var postcode = tbPostcode.Text;
+
+                    if (garagename != null && contactname != null && address != null && country != null && city != null && postcode != null)
+                    {
+                        Customers customer = ctx.Customers.Find(selectedCustomer.ID);
+                        customer.CustomerName = garagename;
+                        customer.ContactName = contactname;
+                        customer.Address = address;
+                        customer.City = city;
+                        customer.PostalCode = postcode;
+                        customer.Country = country;
+
+                        ctx.SaveChanges();
+                    }
+                    MessageBox.Show($"{tbGarageName.Text} is updated");
+                }
+               
 
 
             }

@@ -78,29 +78,37 @@ namespace HamzaIndividueelProject.Admin
             {
                 Orders selectedOrder = ItemList.SelectedItem as Orders;
 
-                string brandname = cbBrandName.Text;
-                string garagename = tbGarageName.Text;
-                string contactname = tbContactNameOrder.Text;
-                string modelname = tbModelName.Text;
-                int quantity = Convert.ToInt32(tbQuantity.Text);
-                double unitprice = Convert.ToDouble(tbUnitPrice.Text);
-                double total = Convert.ToDouble(tbTotal.Text);
-
-                if (brandname != null && modelname != null && garagename != null && contactname != null)
+                if(selectedOrder == null)
                 {
-                    Orders order = ctx.Orders.Find(selectedOrder.OrderID);
-                    order.BrandName = brandname;
-                    order.GarageName = garagename;
-                    order.ContactNameOrder = contactname;
-                    order.ModelName = modelname;
-                    order.UnitPrice = unitprice;
-                    order.Quantity = quantity;
-                    order.Total = total;
-
-
-                    ctx.SaveChanges();
+                    MessageBox.Show("Niets aangeduid","Fout");
                 }
-                MessageBox.Show($"Order is updated");
+                else
+                {
+                    string brandname = cbBrandName.Text;
+                    string garagename = tbGarageName.Text;
+                    string contactname = tbContactNameOrder.Text;
+                    string modelname = tbModelName.Text;
+                    int quantity = Convert.ToInt32(tbQuantity.Text);
+                    double unitprice = Convert.ToDouble(tbUnitPrice.Text);
+                    double total = Convert.ToDouble(tbTotal.Text);
+
+                    if (brandname != null && modelname != null && garagename != null && contactname != null)
+                    {
+                        Orders order = ctx.Orders.Find(selectedOrder.OrderID);
+                        order.BrandName = brandname;
+                        order.GarageName = garagename;
+                        order.ContactNameOrder = contactname;
+                        order.ModelName = modelname;
+                        order.UnitPrice = unitprice;
+                        order.Quantity = quantity;
+                        order.Total = total;
+
+
+                        ctx.SaveChanges();
+                    }
+                    MessageBox.Show($"Order is updated");
+                }
+                
 
 
             }

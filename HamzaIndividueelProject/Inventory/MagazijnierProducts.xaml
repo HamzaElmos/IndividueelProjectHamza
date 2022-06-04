@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject.Magazijnier"
         mc:Ignorable="d"
-        Title="MagazijnierProducts" Height="450" Width="1150" WindowStartupLocation="CenterOwner">
+        Title="MagazijnierProducts" Height="450" Width="1000" WindowStartupLocation="CenterOwner">
     <Grid>
-        <DockPanel>
+        <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
-                <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
-                <Button Content="tweede"/>
+                <Button x:Name="btnLogout" HorizontalAlignment="Right" Content="LOG OUT" Margin="0 10 20 10" Click="btnLogout_Click"/>
+                
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
@@ -26,8 +26,15 @@
                 </StackPanel>
                 <!--gridpanel-->
                 <StackPanel Orientation="Horizontal">
+                   
+                    <Label Content="Supplier" Width="70"  VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbSupplier" Text="{Binding ElementName=ItemList , Path=SelectedItem.Supplier, Mode=OneWay}" Width="170" Margin="0 20 30 0" Height="30"></TextBox>
+                    <Label Margin="30 0 20 0 " Content="Quantity" Width="70"  VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="170" Margin="0 20 30 0" Height="30"></TextBox>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal">
                     <Label  Content="Brand Name" Width="90" HorizontalAlignment="left" Margin="0 20 30 0"/>
-
                     <ComboBox x:Name="cbBrandName" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.BrandName, Mode=OneWay}" Margin="0 20 30 0" >
                         <ComboBoxItem Content="VOLKSWAGEN"/>
                         <ComboBoxItem Content="AUDI"/>
@@ -35,24 +42,18 @@
                         <ComboBoxItem Content="SKODA"/>
                         <ComboBoxItem Content="CUPRA"/>
                     </ComboBox>
-                    <Label Content="Supplier" Width="70"  VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbSupplier" Text="{Binding ElementName=ItemList , Path=SelectedItem.Supplier, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
-                    <Label Content="Quantity" Width="70"  VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                    <Label Margin="0 20 14 0" Content="Model Name"/>
+                    <TextBox  x:Name="tbModelName" Text="{Binding ElementName=ItemList , Path=SelectedItem.ModelName, Mode=OneWay}" Width="166" Margin="0 20 30 0"></TextBox>
+                    
                 </StackPanel>
                 
                 <StackPanel Orientation="Horizontal">
-                    <Label Margin="0 20 30 0" Content="Model Name"/>
-                    <TextBox  x:Name="tbModelName" Text="{Binding ElementName=ItemList , Path=SelectedItem.ModelName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
                     <Label Margin="0 20 30 0" Content="Purchase Price"/>
-                    <TextBox x:Name="tbPurchasePrice" Width="170" Text="{Binding ElementName=ItemList , Path=SelectedItem.PurchasePrice, Mode=OneWay}" Margin="0 20 30 0"/>
+                    <TextBox x:Name="tbPurchasePrice" Width="154" Text="{Binding ElementName=ItemList , Path=SelectedItem.PurchasePrice, Mode=OneWay}" Margin="0 20 30 0"/>
                     <Label Content="Unit Price" Margin="0 20 30 0"/>
                     <TextBox x:Name="tbUnitPrice" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal">
-                    <Button Margin="0 10 0 0" Content="filter" />
-                    <TextBox Margin="30 10 0 0" Width="100" Height="25" />
+                    <Button Content="Margin" Width="80" Margin="0 20 20 0" Click="Button_Click"/>
+                    <TextBox x:Name="tbMargin" Width="100" Margin="10 20 20 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Margin, Mode=OneWay}"/>
                 </StackPanel>
 
 
@@ -73,9 +74,8 @@
                             <GridViewColumn Header="Purchase Price" DisplayMemberBinding="{Binding PurchasePrice}" Width="110"/>
                             <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="130"/>
                             <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
-                            <GridViewColumn Header="Margin"  DisplayMemberBinding="{Binding Quantity}" Width="80"/>
+                            <GridViewColumn Header="Margin"  DisplayMemberBinding="{Binding Margin}" Width="80"/>
                             
-                            <!--textbox koppelen aan margin-->
                         </GridView>
                     </ListView.View>
                 </ListView>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,31 @@ namespace HamzaIndividueelProject
 
         public decimal PurchasePrice { get; set; }
         public decimal Margin { get; set; }
+
+
+        public static List<Products> GetData()
+        {
+
+
+            var file = @"C:\Users\hamza\Downloads\RetrieveData.csv";
+            var lines = File.ReadAllLines(file);
+            var list = new List<Products>();
+
+            for (int i = 2; i < lines.Length; i++)
+            {
+                var line = lines[i].Split(';');
+                var productupdate = new Products()
+                {
+                    Supplier = line[0],
+                    BrandName = line[1],
+                    ModelName = line[2],
+                    PurchasePrice = Convert.ToDecimal(line[3]),
+                    Quantity = Convert.ToInt32(line[4])
+                };
+                list.Add(productupdate);
+            }
+            return list;
+        }
 
     }
     
