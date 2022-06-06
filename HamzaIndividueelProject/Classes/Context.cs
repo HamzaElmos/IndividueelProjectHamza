@@ -14,7 +14,6 @@ namespace HamzaIndividueelProject
         
         public DbSet<Employees> Employees { get; set; }
         public DbSet<Customers> Customers { get; set; }
-        public DbSet<Inventory> Inventory { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }
         public DbSet<Products> Products { get; set; }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject.Admin"
         mc:Ignorable="d"
-        Title="AdminOrders" Height="450" Width="1100">
+        Title="INCOMING ORDER" MinHeight="850" MinWidth="1150">
     <Grid>
         <DockPanel>
             <StackPanel Background="#E6FBF1" DockPanel.Dock="Top">
@@ -17,7 +17,7 @@
                 <Button x:Name="btnRead" HorizontalAlignment="left" Content="Show Orders" Margin="20 20 20 20" Width="100" Click="btnRead_Click"  />
                 <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Edit Order" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"  />
                 <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"   />
-                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="MAIN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"  />
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"  />
             </StackPanel>
             <StackPanel Background="#E6FBF1">
 
@@ -39,15 +39,22 @@
                     </ComboBox>
                     <Label Margin="0 20 35 0" Content="Model Name"/>
                     <TextBox  x:Name="tbModelName" Text="{Binding ElementName=ItemList , Path=SelectedItem.ModelName, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                    
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Unit Price" Margin="0 20 30 0"/>
+                    <Label Content="Selling Price" Margin="0 20 30 0"/>
                     <TextBox x:Name="tbUnitPrice" Width="149" Margin="20 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
                     <Label Content="Quantity" Width="70"  VerticalAlignment="Bottom"/>
                     <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="170" Margin="44 20 30 0" ></TextBox>
-                    <Button Content="Total" Margin="20 20 30 0" Width="70" Click="Button_Click"/>
-                    <TextBox x:Name="tbTotal" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Total, Mode=OneWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Button Content="Total Excl." Margin="0 20 40 0" Width="70" Click="Button_Click"/>
+                    <TextBox x:Name="tbTotal" Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Total, Mode=OneWay}"/>
+                    <Button Content="Tax" Margin="0 20 45 0" Width="70" Click="Button_Click_1"/>
+                    <TextBox x:Name="tbTax" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.TaxDue, Mode=OneWay}"/>
+                    <Button Content="Total Incl." Margin="0 20 40 0" Width="70" Click="Button_Click_2" />
+                    <TextBox x:Name="tbTotalIncl" Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.TotalAllIn, Mode=OneWay}"/>
                 </StackPanel>
 
                 
@@ -62,14 +69,16 @@
                     </ListView.ContextMenu>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding OrderID}" Width="30"/>
                             <GridViewColumn Header="Garage Name" DisplayMemberBinding="{Binding GarageName}" Width="130"/>
-                            <GridViewColumn Header="Contact Name" DisplayMemberBinding="{Binding ContactNameOrder}" Width="110"/>
+                            <GridViewColumn Header="" DisplayMemberBinding="{Binding ContactNameOrder}" />
                             <GridViewColumn Header="Brand Name" DisplayMemberBinding="{Binding BrandName}" Width="130"/>
                             <GridViewColumn Header="Model Name" DisplayMemberBinding="{Binding ModelName}" Width="130"/>
                             <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
-                            <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="130"/>
-                            <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Total}" Width="130"/>
+                            <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="100"/>
+                            <GridViewColumn Header="Total excl." DisplayMemberBinding="{Binding Total}" Width="100"/>
+                            <GridViewColumn Header="Tax" DisplayMemberBinding="{Binding TaxDue}" Width="100"/>
+                            <GridViewColumn Header="Total incl." DisplayMemberBinding="{Binding TotalAllIn}" Width="100"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

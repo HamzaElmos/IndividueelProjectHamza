@@ -23,6 +23,8 @@ namespace HamzaIndividueelProject.Admin
         public AdminUsers()
         {
             InitializeComponent();
+            Read();
+
         }
 
         public List<NewUser> DatabaseNewUser { get; private set; }
@@ -45,10 +47,8 @@ namespace HamzaIndividueelProject.Admin
                     ctx.NewUsers.Add(new NewUser() { Name = name, LastName = lastname, Username = username, Password = password, DateJoined = dateTime, Departement=departement});
                     ctx.SaveChanges();
                 }
-                else
-                {
-                    MessageBox.Show("Niet alle velden zijn ingevuld");
-                }
+                
+                MessageBox.Show("Add to list");
                 //clear boxes
                 tbFirstName.Clear();
                 tbLastName.Clear();
@@ -115,13 +115,13 @@ namespace HamzaIndividueelProject.Admin
 
             using (Context ctx = new Context())
             {
-                Employees selectedUser = ItemList.SelectedItem as Employees;
+                NewUser selectedUser = ItemList.SelectedItem as NewUser;
 
 
                 if (selectedUser != null)
                 {
 
-                    Employees user = ctx.Employees.Single(x => x.ID == selectedUser.ID);
+                    NewUser user = ctx.NewUsers.Single(x => x.ID == selectedUser.ID);
 
                     ctx.Remove(user);
                     ctx.SaveChanges();

@@ -4,6 +4,7 @@ using HamzaIndividueelProject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HamzaIndividueelProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220606151249_TotalProduct")]
+    partial class TotalProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,9 +239,6 @@ namespace HamzaIndividueelProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalExcl")
                         .HasColumnType("float");
 
                     b.Property<decimal>("UnitPrice")

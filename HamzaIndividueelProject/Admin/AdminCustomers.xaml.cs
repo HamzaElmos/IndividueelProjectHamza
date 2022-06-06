@@ -22,6 +22,7 @@ namespace HamzaIndividueelProject
         public AdminCustomers()
         {
             InitializeComponent();
+            Read();
         }
 
         public List<Customers> DatabaseCustomers { get; private set; }

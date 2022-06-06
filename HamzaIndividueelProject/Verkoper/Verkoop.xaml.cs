@@ -22,6 +22,7 @@ namespace HamzaIndividueelProject.Verkoper
         public Verkoop()
         {
             InitializeComponent();
+            Read();
         }
         public List<Customers> DatabaseCustomers { get; private set; }
 

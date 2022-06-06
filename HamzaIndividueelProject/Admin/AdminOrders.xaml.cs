@@ -25,6 +25,7 @@ namespace HamzaIndividueelProject.Admin
         public AdminOrders()
         {
             InitializeComponent();
+            Read();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -32,34 +33,42 @@ namespace HamzaIndividueelProject.Admin
             double unitprice = Convert.ToDouble(tbUnitPrice.Text);
 
             double subtotal = quantity * unitprice;
+            subtotal= Math.Round(subtotal, 2);
 
             tbTotal.Text = subtotal.ToString();
         }
 
         public void Create()
         {
-            using (Context ctx = new Context())
-            {
-                string brandname = cbBrandName.Text;
-                string garagename = tbGarageName.Text;
-                string contactname = tbContactNameOrder.Text;
-                string modelname = tbModelName.Text;
-                int quantity = Convert.ToInt32(tbQuantity.Text);
-                double unitprice = Convert.ToDouble(tbUnitPrice.Text);
-                double total = Convert.ToDouble(tbTotal.Text);
-
-                if (brandname != null && garagename != null && contactname != null && modelname != null)
+           
+                using (Context ctx = new Context())
                 {
-                    ctx.Orders.Add(new Orders() { BrandName = brandname, GarageName = garagename, ContactNameOrder = contactname, ModelName = modelname, Quantity = quantity, UnitPrice = unitprice, Total = total });
-                    ctx.SaveChanges();
+                    string brandname = cbBrandName.Text;
+                    string garagename = tbGarageName.Text;
+                    string contactname = tbContactNameOrder.Text;
+                    string modelname = tbModelName.Text;
+                    int quantity = Convert.ToInt32(tbQuantity.Text);
+                    double unitprice = Convert.ToDouble(tbUnitPrice.Text);
+                    double taxdue = Convert.ToDouble(tbTax);
+                    double totalallin = Convert.ToDouble(tbTotalIncl.Text);
+                    double total = Convert.ToDouble(tbTotal.Text);
+
+                    if (brandname != null && garagename != null && contactname != null && modelname != null)
+                    {
+                        ctx.Orders.Add(new Orders() { TotalAllIn = totalallin, TaxDue = taxdue, BrandName = brandname, GarageName = garagename, ContactNameOrder = contactname, ModelName = modelname, Quantity = quantity, UnitPrice = unitprice, Total = total });
+                        ctx.SaveChanges();
+                    }
+                    tbGarageName.Clear();
+                    tbContactNameOrder.Clear();
+                    tbModelName.Clear();
+                    tbQuantity.Clear();
+                    tbUnitPrice.Clear();
+                    tbTotal.Clear();
+                    tbTotalIncl.Clear();
+                    tbTax.Clear();
                 }
-                tbGarageName.Clear();
-                tbContactNameOrder.Clear();
-                tbModelName.Clear();
-                tbQuantity.Clear();
-                tbUnitPrice.Clear();
-                tbTotal.Clear();
-            }
+            
+           
         }
 
         public void Read()
@@ -90,7 +99,9 @@ namespace HamzaIndividueelProject.Admin
                     string modelname = tbModelName.Text;
                     int quantity = Convert.ToInt32(tbQuantity.Text);
                     double unitprice = Convert.ToDouble(tbUnitPrice.Text);
+                    double taxdue = Convert.ToDouble(tbTax.Text);
                     double total = Convert.ToDouble(tbTotal.Text);
+                    double totalallin = Convert.ToDouble(tbTotalIncl.Text);
 
                     if (brandname != null && modelname != null && garagename != null && contactname != null)
                     {
@@ -101,12 +112,24 @@ namespace HamzaIndividueelProject.Admin
                         order.ModelName = modelname;
                         order.UnitPrice = unitprice;
                         order.Quantity = quantity;
+                        order.TaxDue = taxdue;
                         order.Total = total;
+                        order.TotalAllIn = totalallin;
 
 
                         ctx.SaveChanges();
                     }
+                    
                     MessageBox.Show($"Order is updated");
+                    tbGarageName.Clear();
+                    tbContactNameOrder.Clear();
+                    tbModelName.Clear();
+                    tbQuantity.Clear();
+                    tbUnitPrice.Clear();
+                    tbTotal.Clear();
+                    tbTotalIncl.Clear();
+                    tbTax.Clear();
+
                 }
                 
 
@@ -138,7 +161,10 @@ namespace HamzaIndividueelProject.Admin
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            Create();
+            
+                Create();
+            
+            
         }
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
@@ -162,6 +188,27 @@ namespace HamzaIndividueelProject.Admin
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            double unitprice = Convert.ToDouble(tbUnitPrice.Text);
+            double tax = 0.21;
+            double subtotal = (quantity * unitprice)*tax;
+            subtotal = Math.Round(subtotal, 2);
+            tbTax.Text = subtotal.ToString();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            double unitprice = Convert.ToDouble(tbUnitPrice.Text);
+            double tax = 1.21;
+            double subtotal = (quantity * unitprice) * tax;
+            subtotal = Math.Round(subtotal, 2);
+            tbTotalIncl.Text = subtotal.ToString();
+           
         }
     }
 }

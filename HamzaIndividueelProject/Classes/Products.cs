@@ -24,14 +24,17 @@ namespace HamzaIndividueelProject
         public decimal UnitPrice { get; set; }
 
         public decimal PurchasePrice { get; set; }
+        public double DeductableTax {get; set; }
+        public double TotalExcl { get; set; }
+        public double Total { get; set; }
         public decimal Margin { get; set; }
 
 
-        public static List<Products> GetData()
+        public static List<Products> GetData(string path)
         {
 
-
-            var file = @"C:\Users\hamza\Downloads\RetrieveData.csv";
+            
+            var file = path;
             var lines = File.ReadAllLines(file);
             var list = new List<Products>();
 

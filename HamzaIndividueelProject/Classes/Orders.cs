@@ -16,8 +16,10 @@ namespace HamzaIndividueelProject.Classes
         public string BrandName { get; set; }
         public string ModelName { get; set; }
         public double UnitPrice { get; set; }
+        public double TaxDue { get; set; }
         public int Quantity { get; set; }
         public double Total { get; set; }
+        public double TotalAllIn { get; set; }
 
         
     }
