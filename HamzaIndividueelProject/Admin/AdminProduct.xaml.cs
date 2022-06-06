@@ -23,6 +23,8 @@ namespace HamzaIndividueelProject.Admin
         public AdminProduct()
         {
             InitializeComponent();
+            Read();
+
         }
         public List<Products> DatabaseProducts { get; private set; }
 
@@ -35,6 +37,9 @@ namespace HamzaIndividueelProject.Admin
                 string supplier = tbSupplier.Text;
                 decimal unitprice = Convert.ToDecimal( tbUnitPrice.Text);
                 decimal purchaseprice = Convert.ToDecimal( tbPurchasePrice.Text);
+                double deductabletax = Convert.ToDouble(tbTax.Text);
+                double total = Convert.ToDouble(tbTotalIncl.Text);
+                double totalexcl = Convert.ToDouble(tbTotalExcl.Text);
                 decimal margin = Convert.ToDecimal( tbMargin.Text);
                 int quantity = Convert.ToInt32( tbQuantity.Text);
 
@@ -51,6 +56,9 @@ namespace HamzaIndividueelProject.Admin
                 tbPurchasePrice.Clear();
                 tbQuantity.Clear();
                 tbMargin.Clear();
+                tbTax.Clear();
+                tbTotalIncl.Clear();
+                tbTotalExcl.Clear();
 
 
 
@@ -87,6 +95,9 @@ namespace HamzaIndividueelProject.Admin
                     decimal unitprice = Convert.ToDecimal(tbUnitPrice.Text);
                     decimal purchaseprice = Convert.ToDecimal(tbPurchasePrice.Text);
                     decimal margin = Convert.ToDecimal(tbMargin.Text);
+                    double tax = Convert.ToDouble(tbTax.Text);
+                    double totalIncl = Convert.ToDouble(tbTotalIncl.Text);
+                    double totalexcl = Convert.ToDouble(tbTotalExcl.Text);
                     int quantity = Convert.ToInt32(tbQuantity.Text);
 
                     if (brandname != null && modelname != null && supplier != null)
@@ -97,11 +108,23 @@ namespace HamzaIndividueelProject.Admin
                         product.Supplier = supplier;
                         product.UnitPrice = unitprice;
                         product.PurchasePrice = purchaseprice;
+                        product.DeductableTax = tax;
+                        product.Total = totalIncl;
+                        product.TotalExcl = totalexcl;
                         product.Margin = margin;
                         product.Quantity = quantity;
 
                         ctx.SaveChanges();
                     }
+                    tbModelName.Clear();
+                    tbSupplier.Clear();
+                    tbUnitPrice.Clear();
+                    tbPurchasePrice.Clear();
+                    tbQuantity.Clear();
+                    tbMargin.Clear();
+                    tbTax.Clear();
+                    tbTotalIncl.Clear();
+                    tbTotalExcl.Clear();
                     MessageBox.Show($"{cbBrandName.Text} {tbModelName.Text} is updated");
                 }
                 
@@ -165,8 +188,54 @@ namespace HamzaIndividueelProject.Admin
             int quantity = Convert.ToInt32(tbQuantity.Text);
 
             decimal margin = (decimal)((unit - purchase) * quantity);
+            margin = Math.Round(margin, 2);
 
             tbMargin.Text= margin.ToString();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //exclusief
+            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            double totalexcl = (double)(purchase * quantity);
+            tbTotalExcl.Text= totalexcl.ToString();
+
+            //tax
+            double tax = 0.21;
+            double total = totalexcl * tax;
+            total = Math.Round(total, 2);
+            tbTax.Text = total.ToString();
+
+            //inclusief
+            double taxincl = 1.21;
+            double totalincl = totalexcl * taxincl;
+            totalincl = Math.Round(total, 2);
+            tbTotalIncl.Text = totalincl.ToString();
+
+        }
+
+       /* private void Tax_Click(object sender, RoutedEventArgs e)
+        {
+            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            double totalexcl = (double)(purchase * quantity);
+            double tax = 0.21;
+            double total = totalexcl * tax;
+            total = Math.Round(total, 2);
+            tbTax.Text= total.ToString();
+
+        }
+
+        private void btnTotal_Click(object sender, RoutedEventArgs e)
+        {
+            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            double totalexcl = (double)(purchase * quantity);
+            double tax = 1.21;
+            double total = totalexcl * tax;
+            total = Math.Round(total, 2);
+            tbTotalIncl.Text = total.ToString();
+        } */
     }
 }

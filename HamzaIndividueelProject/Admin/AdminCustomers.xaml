@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject"
         mc:Ignorable="d"
-        Title="AdminCustomers" Height="450" Width="1100">
+        Title="AdminCustomers" MinHeight="850" MinWidth="1150">
     <Grid>
         <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
@@ -17,7 +17,7 @@
                 <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click"/>
                 <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" />
                 <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click" />
-                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="GO BACK" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"/>
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"/>
             </StackPanel>
             <StackPanel>
                 

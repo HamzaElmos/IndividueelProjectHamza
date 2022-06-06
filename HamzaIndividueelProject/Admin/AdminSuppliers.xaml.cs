@@ -24,6 +24,7 @@ namespace HamzaIndividueelProject.Admin
         public AdminSuppliers()
         {
             InitializeComponent();
+            Read();
         }
 
         public void Create()

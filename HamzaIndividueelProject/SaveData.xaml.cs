@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using HamzaIndividueelProject.Verkoper;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,12 +33,16 @@ namespace HamzaIndividueelProject
             dlg.InitialDirectory = @"C:\Deze pc\Downloads";
             var result = dlg.ShowDialog();
             tbUploadFile.Text = dlg.FileName;
-            DG.ItemsSource = Products.GetData();
+            DG.ItemsSource = Products.GetData(dlg.FileName);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
+
+       
     }
 }

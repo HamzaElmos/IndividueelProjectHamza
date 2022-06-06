@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject"
         mc:Ignorable="d"
-        Title="AdministratorScherm" Height="450" Width="1150">
+        Title="AdministratorScherm" MinHeight="850" MinWidth="1150">
     <DockPanel Background="#E6FBF1">
         <StackPanel DockPanel.Dock="Left">
             <Button  x:Name="btnAddEmployee" Content="Add Employee" Width="100"  Margin="20 20 20 20" Click="btnAddEmployee_Click"/>

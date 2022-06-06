@@ -39,7 +39,7 @@ namespace HamzaIndividueelProject
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
-            /* var username = txtUsername.Text;
+            var username = txtUsername.Text;
              var password = txtPassword.Password;
              var departement = cbProfile.Text;
 
@@ -59,7 +59,7 @@ namespace HamzaIndividueelProject
                  }
 
              }
-            */
+            /*
 
             using (Context ctx = new Context())
                           {
@@ -97,7 +97,7 @@ namespace HamzaIndividueelProject
             txtUsername.Clear();
                txtPassword.Clear();
 
-
+             */
 
 
            }

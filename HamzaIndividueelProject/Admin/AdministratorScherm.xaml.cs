@@ -24,6 +24,7 @@ namespace HamzaIndividueelProject
         public AdministratorScherm()
         {
             InitializeComponent();
+            Read();
         }
         public void Create()
         {

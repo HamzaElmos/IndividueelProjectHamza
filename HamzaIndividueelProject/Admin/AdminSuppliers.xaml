@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject.Admin"
         mc:Ignorable="d"
-        Title="AdminSuppliers" Height="450" Width="1150">
+        Title="AdminSuppliers" MinHeight="850" MinWidth="1150">
     <Grid>
         <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
