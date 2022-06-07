@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HamzaIndividueelProject"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="450" Background="DarkGray" MaxWidth="450">
-    <Border Background="#E6FBF1" CornerRadius="20" Margin="20">
+        Title="Login" Height="500" Width="450" Background="#E6FBF1" MaxWidth="450" WindowStartupLocation="CenterScreen">
+    <Border Background="#E6FBF3" CornerRadius="20" Margin="20">
+        
         <StackPanel Margin="20">
 
             <Label Content="Profile"  FontSize="26" Foreground="DarkGray" HorizontalAlignment="Center"/>
@@ -22,7 +23,7 @@
 
             <Separator></Separator>
 
-            <Button  Name="btnSubmit" Content="LOG IN" Margin="60 30" Background="#545d6a" Foreground="White" FontSize="18" Click="btnSubmit_Click"/>
+            <Button Template="{DynamicResource RoundedButton}"  Name="btnSubmit" Content="LOG IN" Margin="60 30" Background="#545d6a" Foreground="White" FontSize="18" Click="btnSubmit_Click"/>
         
         </StackPanel>
     </Border>

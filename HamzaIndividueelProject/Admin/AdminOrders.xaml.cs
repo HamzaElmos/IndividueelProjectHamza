@@ -27,16 +27,7 @@ namespace HamzaIndividueelProject.Admin
             InitializeComponent();
             Read();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            int quantity = Convert.ToInt32(tbQuantity.Text);
-            double unitprice = Convert.ToDouble(tbUnitPrice.Text);
-
-            double subtotal = quantity * unitprice;
-            subtotal= Math.Round(subtotal, 2);
-
-            tbTotal.Text = subtotal.ToString();
-        }
+        
 
         public void Create()
         {
@@ -49,7 +40,7 @@ namespace HamzaIndividueelProject.Admin
                     string modelname = tbModelName.Text;
                     int quantity = Convert.ToInt32(tbQuantity.Text);
                     double unitprice = Convert.ToDouble(tbUnitPrice.Text);
-                    double taxdue = Convert.ToDouble(tbTax);
+                double taxdue = Convert.ToDouble(tbTax.Text); ;
                     double totalallin = Convert.ToDouble(tbTotalIncl.Text);
                     double total = Convert.ToDouble(tbTotal.Text);
 
@@ -188,6 +179,30 @@ namespace HamzaIndividueelProject.Admin
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            double unitprice = Convert.ToDouble(tbUnitPrice.Text);
+
+            double subtotal = quantity * unitprice;
+            subtotal = Math.Round(subtotal, 2);
+
+            tbTotal.Text = subtotal.ToString();
+
+            //tax
+
+            double tax = 0.21;
+            double total = subtotal * tax;
+            total = Math.Round(total, 2);
+            tbTax.Text = total.ToString();
+
+            //inclusief
+            double taxincl = 1.21;
+            double totalincl = total * taxincl;
+            totalincl = Math.Round(total, 2);
+            tbTotalIncl.Text = totalincl.ToString();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

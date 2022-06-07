@@ -15,5 +15,6 @@ namespace HamzaIndividueelProject
         public string Departement { get; set; }
         public DateTime DateJoined { get; set; }
 
+       
     }
 }

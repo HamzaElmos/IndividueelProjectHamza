@@ -9,15 +9,15 @@
     <Grid>
         <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
-                <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
+                <Image   HorizontalAlignment="Right" Source="/Admin/1920_01-vw-logo-795576.jpeg" Height="40" Width="60" Grid.Column="1"/>
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
-                <Button  x:Name="btnAddProduct" Content="Add Product" Width="100"  Margin="20 20 20 20" Click="btnAddProduct_Click"/>
-                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click" />
-                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" />
-                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"  />
-                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click" />
+                <Button  x:Name="btnAddProduct" Content="Add Product" Width="100"  Margin="20 20 20 20" Click="btnAddProduct_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click" Template="{DynamicResource RoundedButton}" />
+                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click" Template="{DynamicResource RoundedButton}" />
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click" Template="{DynamicResource RoundedButton}" />
             </StackPanel>
             <StackPanel>
 
@@ -52,7 +52,7 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Total Excl." Margin="0 20 40 0" Width="70" Click="Button_Click_1" />
+                    <Button Content="Total Excl." Margin="0 20 40 0" Width="70" Click="Button_Click_1" Template="{DynamicResource RoundedButton}" />
                     <TextBox x:Name="tbTotalExcl" Width="150" Margin="10 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.TotalExcl, Mode=OneWay}"/>
                     <Label Content="Tax" Margin="0 20 30 0" Width="70"  />
                     <TextBox x:Name="tbTax" Width="95" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.DeductableTax, Mode=OneWay}"/>
@@ -62,7 +62,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Selling Price" Margin="0 20 30 0"/>
                     <TextBox x:Name="tbUnitPrice" Width="147" Margin="15 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
-                    <Button Content="Margin" Width="80" Margin="0 20 20 0" Click="Button_Click"/>
+                    <Button Content="Margin" Width="80" Margin="0 20 20 0" Click="Button_Click" Template="{DynamicResource RoundedButton}"/>
                     <TextBox x:Name="tbMargin" Width="100" Margin="5 20 20 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Margin, Mode=OneWay}"/>
 
                 </StackPanel>

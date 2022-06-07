@@ -231,30 +231,7 @@ namespace HamzaIndividueelProject.Magazijnier
             }
         }
 
-        /* private void Tax_Click(object sender, RoutedEventArgs e)
-        {
-            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
-            int quantity = Convert.ToInt32(tbQuantity.Text);
-            double totalexcl = (double)(purchase * quantity);
-            double tax = 0.21;
-            double total = totalexcl * tax;
-            total = Math.Round(total, 2);
-            tbTax.Text = total.ToString();
-
-        }
-
-        private void btnTotal_Click(object sender, RoutedEventArgs e)
-        {
-            decimal purchase = Convert.ToDecimal(tbPurchasePrice.Text);
-            int quantity = Convert.ToInt32(tbQuantity.Text);
-            double totalexcl = (double)(purchase * quantity);
-            double tax = 1.21;
-            double total = totalexcl * tax;
-            total = Math.Round(total, 2);
-            tbTotalIncl.Text = total.ToString();
-        }
-
-        */
+        
     }
 }
 

@@ -2,16 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HamzaIndividueelProject.Admin
 {
@@ -29,6 +20,8 @@ namespace HamzaIndividueelProject.Admin
 
         public List<NewUser> DatabaseNewUser { get; private set; }
 
+        
+
         public void Create()
         {
             using (Context ctx = new Context())
@@ -36,14 +29,17 @@ namespace HamzaIndividueelProject.Admin
                 string name = tbFirstName.Text;
                 string lastname = tbLastName.Text;
                 string username = tbUsername.Text;
-                string password = tbPassword.Text;
+                string password =  tbPassword.Text;
                 string departement = cbDepartement.Text;
                 DateTime dateTime = tbJoined.DisplayDate;
+
+                password = Cryptography.Encrypt(password);
 
 
 
                 if (name != null && lastname != null && username != null && password != null && dateTime != null)
                 {
+                    
                     ctx.NewUsers.Add(new NewUser() { Name = name, LastName = lastname, Username = username, Password = password, DateJoined = dateTime, Departement=departement});
                     ctx.SaveChanges();
                 }
@@ -134,7 +130,9 @@ namespace HamzaIndividueelProject.Admin
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
+            
             Create();
+           
         }
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
@@ -158,5 +156,7 @@ namespace HamzaIndividueelProject.Admin
             main.Show();
             this.Close();
         }
+
+  
     }
 }

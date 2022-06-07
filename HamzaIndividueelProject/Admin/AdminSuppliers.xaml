@@ -9,15 +9,15 @@
     <Grid>
         <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
-                <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
+                <Image   HorizontalAlignment="Right" Source="/Admin/1920_01-vw-logo-795576.jpeg" Height="40" Width="60" Grid.Column="1"/>
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
-                <Button  x:Name="btnAddSupplier" Content="Add Supplier" Width="100"  Margin="20 20 20 20" Click="btnAddSupplier_Click" />
-                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click" />
-                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"  />
-                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"  />
-                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="GO BACK" Margin="20 20 20 20" Width="100" Click="btnReturn_Click" />
+                <Button  x:Name="btnAddSupplier" Content="Add Supplier" Width="100"  Margin="20 20 20 20" Click="btnAddSupplier_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"  Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"  Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="GO BACK" Margin="20 20 20 20" Width="100" Click="btnReturn_Click" Template="{DynamicResource RoundedButton}"/>
             </StackPanel>
             <StackPanel>
 
