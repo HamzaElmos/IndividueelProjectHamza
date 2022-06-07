@@ -17,24 +17,23 @@
             <ColumnDefinition />
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <Button Width="100" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0" Content="Log out" Click="Button_Click"/>
+        <Image   HorizontalAlignment="Right" Source="/Admin/1920_01-vw-logo-795576.jpeg" Height="40" Width="60" Grid.Column="2"/>
+        <Button Width="100" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Content="Log out" Template="{DynamicResource RoundedButton}" Click="Button_Click"/>
         <ListBox Grid.Column="0" SelectionMode="Single"  x:Name="sidebar" BorderThickness="0"  Grid.Row="1">
         </ListBox>
         <TextBlock FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Margin="324,0,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2">DATABEHEER</TextBlock>
         <StackPanel Margin="23,19,49,38" Grid.Column="1" x:Name="navframe"  Background="#e9ecef" Grid.Row="1">
 
-            <Button x:Name="btnAdminEmployee" Margin="20 20 20 30" Click="btnAdminEmployee_Click">Employee Data</Button>
-            <Button x:Name="btnAdminCustomer" Margin="20 20 20 30" Click="btnAdminCustomer_Click">Customer Data</Button>
-            <Button x:Name="btnAdminProduct" Margin="20 20 20 30" Click="btnAdminProduct_Click">Outgoing Order Data</Button>
-            <Button x:Name="btnOrders" Margin="20 20 20 30" Click="btnOrders_Click">Incoming Order Data</Button>
+            <Button x:Name="btnAdminEmployee" Margin="20 20 20 30" Click="btnAdminEmployee_Click" Template="{DynamicResource RoundedButton}">Employee Data</Button>
+            <Button x:Name="btnAdminCustomer" Margin="20 20 20 30" Click="btnAdminCustomer_Click" Template="{DynamicResource RoundedButton}">Customer Data</Button>
+            <Button x:Name="btnAdminProduct" Margin="20 20 20 30" Click="btnAdminProduct_Click" Template="{DynamicResource RoundedButton}">Outgoing Order Data</Button>
+            <Button x:Name="btnOrders" Margin="20 20 20 30" Click="btnOrders_Click" Template="{DynamicResource RoundedButton}">Incoming Order Data</Button>
 
         </StackPanel>
         <StackPanel Margin="31,19,40,38" Grid.Column="2" x:Name="extrabuttons"  Background="#e9ecef" Grid.Row="1">
-            <Button x:Name="btnSupplier" Margin="20 20 20 30" Click="btnSupplier_Click">Supplier Data</Button>
-
-            <Button x:Name="btnAddUser" Margin="20 20 20 30" Click="btnAddUser_Click">Add User</Button>
-            <Button x:Name="btnViewData" Margin="20 20 20 30" Click="btnViewData_Click">Import File Data</Button>
+            <Button x:Name="btnSupplier" Margin="20 20 20 30" Click="btnSupplier_Click" Template="{DynamicResource RoundedButton}">Supplier Data</Button>
+            <Button x:Name="btnAddUser" Margin="20 20 20 30" Click="btnAddUser_Click" Template="{DynamicResource RoundedButton}">Add User</Button>
+            <Button x:Name="btnViewData" Margin="20 20 20 30" Click="btnViewData_Click" Template="{DynamicResource RoundedButton}">Import File Data</Button>
         </StackPanel>
 
 

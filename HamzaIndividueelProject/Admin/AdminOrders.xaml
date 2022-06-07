@@ -9,15 +9,15 @@
     <Grid>
         <DockPanel>
             <StackPanel Background="#E6FBF1" DockPanel.Dock="Top">
-                <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
+                <Image   HorizontalAlignment="Right" Source="/Admin/1920_01-vw-logo-795576.jpeg" Height="40" Width="60" Grid.Column="1"/>
                 <!-- alle buttons -->
             </StackPanel>
-            <StackPanel Background="#DAFCFB" DockPanel.Dock="Left">
-                <Button  x:Name="btnAddOrder" Content="Add Order" Width="100"  Margin="20 20 20 20" Click="btnAddOrder_Click" />
-                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Show Orders" Margin="20 20 20 20" Width="100" Click="btnRead_Click"  />
-                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Edit Order" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"  />
-                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"   />
-                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"  />
+            <StackPanel DockPanel.Dock="Left">
+                <Button  x:Name="btnAddOrder" Content="Add Order" Width="100"  Margin="20 20 20 20" Click="btnAddOrder_Click" Template="{DynamicResource RoundedButton}" />
+                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Show Orders" Margin="20 20 20 20" Width="100" Click="btnRead_Click" Template="{DynamicResource RoundedButton}" />
+                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Edit Order" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" Template="{DynamicResource RoundedButton}" />
+                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click" Template="{DynamicResource RoundedButton}"  />
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click" Template="{DynamicResource RoundedButton}"  />
             </StackPanel>
             <StackPanel Background="#E6FBF1">
 
@@ -46,14 +46,14 @@
                     <Label Content="Selling Price" Margin="0 20 30 0"/>
                     <TextBox x:Name="tbUnitPrice" Width="149" Margin="20 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.UnitPrice, Mode=OneWay}"/>
                     <Label Content="Quantity" Width="70"  VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="170" Margin="44 20 30 0" ></TextBox>
+                    <TextBox x:Name="tbQuantity" Text="{Binding ElementName=ItemList , Path=SelectedItem.Quantity, Mode=OneWay}" Width="167" Margin="35 20 20 0" ></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" >
-                    <Button Content="Total Excl." Margin="0 20 40 0" Width="70" Click="Button_Click"/>
+                    <Button Template="{DynamicResource RoundedButton}" Content="Total Excl." Margin="0 20 40 0" Width="70" Click="Button_Click"/>
                     <TextBox x:Name="tbTotal" Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Total, Mode=OneWay}"/>
-                    <Button Content="Tax" Margin="0 20 45 0" Width="70" Click="Button_Click_1"/>
+                    <Label  Content="Tax" Margin="0 20 45 0" Width="70" />
                     <TextBox x:Name="tbTax" Width="170" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.TaxDue, Mode=OneWay}"/>
-                    <Button Content="Total Incl." Margin="0 20 40 0" Width="70" Click="Button_Click_2" />
+                    <Label Content="Total Incl." Margin="0 20 40 0" Width="70" />
                     <TextBox x:Name="tbTotalIncl" Width="150" Margin="0 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.TotalAllIn, Mode=OneWay}"/>
                 </StackPanel>
 

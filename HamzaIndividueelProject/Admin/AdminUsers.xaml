@@ -9,15 +9,16 @@
     <Grid>
         <DockPanel Background="#E6FBF1">
             <StackPanel DockPanel.Dock="Top">
-                <Label x:Name="lblName" HorizontalAlignment="Right" Content="ADMINISTRATOR"/>
+                <Image   HorizontalAlignment="Right" Source="/Admin/1920_01-vw-logo-795576.jpeg" Height="40" Width="60" Grid.Column="1"/>
+
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
-                <Button  x:Name="btnAddUser" Content="Add User" Width="100"  Margin="20 20 20 20" Click="btnAddUser_Click" />
-                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click"  />
-                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click"   />
-                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click"    />
-                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click"  />
+                <Button  x:Name="btnAddUser" Content="Add User" Width="100"  Margin="20 20 20 20" Click="btnAddUser_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnRead" HorizontalAlignment="left" Content="Read" Margin="20 20 20 20" Width="100" Click="btnRead_Click" Template="{DynamicResource RoundedButton}" />
+                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" Template="{DynamicResource RoundedButton}"  />
+                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click" Template="{DynamicResource RoundedButton}"   />
+                <Button x:Name="btnReturn" HorizontalAlignment="left" Content="RETURN" Margin="20 20 20 20" Width="100" Click="btnReturn_Click" Template="{DynamicResource RoundedButton}" />
             </StackPanel>
             <StackPanel>
 
@@ -27,7 +28,7 @@
                 <!--gridpanel-->
                 <StackPanel Orientation="Horizontal">
                     <Label  Content="Username" Width="90" HorizontalAlignment="left" Margin="0 20 10 0"/>
-                    <TextBox x:Name="tbUsername" Text="{Binding ElementName=ItemList , Path=SelectedItem.Username, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
+                    <TextBox  x:Name="tbUsername" Text="{Binding ElementName=ItemList , Path=SelectedItem.Username, Mode=OneWay}" Width="170" Margin="0 20 30 0"></TextBox>
                     <Label Content="Password" Width="70"  VerticalAlignment="Bottom"/>
                     <TextBox x:Name="tbPassword"  Width="150" Margin="24 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.Password, Mode=OneWay}"></TextBox>
                      <Label Content="Departement" Margin="0 20 0 0"/>
@@ -43,7 +44,7 @@
                     <Label Margin="0 20 30 0" Content="Last Name"/>
                     <TextBox x:Name="tbLastName" Width="150" Text="{Binding ElementName=ItemList , Path=SelectedItem.LastName, Mode=OneWay}" Margin="0 20 30 0" Height="25"/>
                     <Label Content="Joined" Margin="0 20 30 0"/>
-                    <DatePicker x:Name="tbJoined" Width="152" Margin="34 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.DateJoined, Mode=OneWay}" Height="25"/>
+                    <DatePicker x:Name="tbJoined" Width="152" Margin="34 20 30 0" Text="{Binding ElementName=ItemList , Path=SelectedItem.DateJoined, Mode=OneWay}" Height="32"/>
                 </StackPanel>
 
 

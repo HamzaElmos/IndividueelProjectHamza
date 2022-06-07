@@ -8,16 +8,17 @@
         Title="Verkoop" MinHeight="850" MinWidth="1150">
     <Grid>
         <DockPanel Background="#E6FBF1">
-            <StackPanel DockPanel.Dock="Top">
-                <Button x:Name="btnLogout" HorizontalAlignment="Right" Content="LOG OUT" Margin="0 10 20 0" Click="btnLogout_Click"/>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Image   HorizontalAlignment="Right" Source="/Admin/1920_01-vw-logo-795576.jpeg" Height="40" Width="60" Grid.Column="1"/>
+                <Button x:Name="btnLogout" HorizontalAlignment="Right" Content="LOG OUT" Margin="900 10 0 0" Click="btnLogout_Click" Template="{DynamicResource RoundedButton}"/>
                 <!-- alle buttons -->
             </StackPanel>
             <StackPanel DockPanel.Dock="Left">
-                <Button  x:Name="btnAddCustomer" Content="Add Customer" Width="100"  Margin="20 20 20 20" Click="btnAddEmployee_Click"/>
-                <Button  x:Name="btnNewOrder" Content="Orders" Width="100"  Margin="20 20 20 20" Click="btnNewOrder_Click" />
-                <Button x:Name="btnRead" HorizontalAlignment="left" Content=" Show Customers" Margin="20 20 20 20" Width="100" Click="btnRead_Click"/>
-                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" />
-                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click" />
+                <Button  x:Name="btnAddCustomer" Content="Add Customer" Width="100"  Margin="20 20 20 20" Click="btnAddEmployee_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button  x:Name="btnNewOrder" Content="Orders" Width="100"  Margin="20 20 20 20" Click="btnNewOrder_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnRead" HorizontalAlignment="left" Content=" Show Customers" Margin="20 20 20 20" Width="100" Click="btnRead_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnUpdate" HorizontalAlignment="left" Content="Update" Margin="20 20 20 20" Width="100" Click="btnUpdate_Click" Template="{DynamicResource RoundedButton}"/>
+                <Button x:Name="btnDelete" HorizontalAlignment="left" Content="Delete" Margin="20 20 20 20" Width="100" Click="btnDelete_Click" Template="{DynamicResource RoundedButton}"/>
             </StackPanel>
             <StackPanel>
 

@@ -3,16 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using SpreadsheetLight;
+using Microsoft.Win32; 
+
+
 
 namespace HamzaIndividueelProject.Verkoper
 {
@@ -220,22 +215,45 @@ namespace HamzaIndividueelProject.Verkoper
 
         }
 
-        /*private void Button_Click_1(object sender, RoutedEventArgs e)
+        public void CreateFile(string path)
         {
-            int quantity = Convert.ToInt32(tbQuantity.Text);
-            double unitprice = Convert.ToDouble(tbUnitPrice.Text);
-           
+            if (path != String.Empty)
+            {
+                using (SLDocument Doc = new SLDocument())
+                {
+                    
+                    Doc.AutoFitColumn(20);
+                    Doc.SetCellValue("C1", tbGarageName.Text);
+                    Doc.SetCellValue("D1", tbContactNameOrder.Text);
+                    Doc.SetCellValue("A3", cbBrandName.Text);
+                    Doc.SetCellValue("B3", tbModelName.Text);
+                    Doc.SetCellValue("D3", tbUnitPrice.Text);
+                    Doc.SetCellValue("E3", tbQuantity.Text);
+                    Doc.SetCellValue("D6", tbTotal.Text);
+                    Doc.SetCellValue("D7", tbTax.Text);
+                    Doc.SetCellValue("D10", tbTotalIncl.Text);
+                    Doc.SaveAs(path);
+
+                }
+            }
+
+
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void btnExport_Click(object sender, RoutedEventArgs e)
         {
-            int quantity = Convert.ToInt32(tbQuantity.Text);
-            double unitprice = Convert.ToDouble(tbUnitPrice.Text);
-            double tax = 1.21;
-            double subtotal = (quantity * unitprice) * tax;
-            subtotal = Math.Round(subtotal, 2);
-            tbTotalIncl.Text = subtotal.ToString();
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.DefaultExt = "xlsx";
 
-        }*/
+            if (saveFile.ShowDialog() == true)
+            {
+                CreateFile(saveFile.FileName);
+
+            }
+
+
+        }
+
+       
     }
 }
